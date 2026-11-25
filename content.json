@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "Art Director",
-    "intro": "Key visuals, integrated campaigns and brand systems for FMCG, mobility, aviation and tech brands in Indonesia. Currently at ANAKBRAND.",
+    "intro": "Key visuals, integrated campaigns and brand systems for FMCG, mobility, aviation and tech brands in Indonesia.",
     "reel_label": "Selected work 2018 — 2026"
   },
   "projects": [
@@ -300,17 +300,14 @@
       },
       {
         "value": 3,
-        "suffix": "",
         "label": "Years leading teams"
       },
       {
         "value": 5,
-        "suffix": "",
         "label": "Studios & agencies"
       },
       {
         "value": 15,
-        "suffix": "",
         "label": "Brands"
       }
     ]
