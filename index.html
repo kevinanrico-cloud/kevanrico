@@ -18,7 +18,7 @@
 --sans:"Inter Tight",system-ui,sans-serif;--ser:"Instrument Serif",Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--pad:max(4vw,18px);--ease:cubic-bezier(.16,1,.3,1)}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0;margin:0;padding:0}
-html{scroll-padding-top:72px}
+html{scroll-padding-top:72px;overflow-x:clip}
 html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-stopped{overflow:hidden}
 body{background:var(--bg);color:var(--ink);font:17px/1.55 var(--sans);overflow-x:clip;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
@@ -194,7 +194,7 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 .chead h3{font-weight:600;font-size:clamp(30px,3.4vw,56px);letter-spacing:-.035em;line-height:1}
 .gal{padding:0 var(--pad);max-width:1680px;margin:0 auto;columns:3 280px;column-gap:clamp(20px,2.6vw,40px)}
 .gal figure{break-inside:avoid;margin-bottom:clamp(20px,2.6vw,40px);overflow:hidden;border-radius:var(--r);background:var(--bg2)}
-.gal.w{columns:2 360px}.gal.one{columns:1}.gal figure.clear{background:none;overflow:visible;border-radius:0}.gal figure.clear img{width:auto;max-width:100%;margin:0 auto}.media.clear{background:none;padding:6% 0;overflow:visible;clip-path:none;opacity:0;transition:opacity 1.2s var(--ease)}.in .media.clear{opacity:1}.media.clear img,.lead.clear img{width:auto!important;max-width:100%;max-height:640px;margin:0 auto;object-fit:contain}
+.gal.w{columns:2 360px}.gal.one{columns:1}.gal figure.clear{background:none;overflow:visible;border-radius:0}.gal figure.clear img{width:auto;max-width:100%;margin:0 auto}.media.clear{background:none;padding:6% 0;overflow:visible;clip-path:none;opacity:0;transition:opacity 1.2s var(--ease)}.in .media.clear{opacity:1}.media.clear img{transform:none!important}.media.clear img,.lead.clear img{width:auto!important;max-width:100%;max-height:640px;margin:0 auto;object-fit:contain}
 .gal img{width:100%;height:auto;animation:gin .9s var(--ease) both}
 @keyframes gin{from{opacity:0;transform:translateY(24px)}}
 .gal figure.pack{display:grid;place-items:center;background:#E2ECDD;padding:30px}
@@ -213,7 +213,7 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 
 @media(max-width:1000px){.links{display:none}.hgrid,.agrid,.egrid,.cgrid,.chero{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.photo{position:relative;top:0;max-width:520px}
 .cards .card{grid-column:span 12!important;margin-top:0!important}.lrow{grid-template-columns:50px minmax(0,1fr) 30px}.lrow .hm{display:none}}
-@media(max-width:600px){.clock{display:none}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:minmax(0,1fr)}.erow{grid-template-columns:minmax(0,1fr)}.crow{grid-template-columns:minmax(0,1fr) auto}.crow .mono{grid-column:1/-1}.track figure{width:82vw;scroll-snap-align:start}.hz .stick{position:relative;height:auto;padding:80px 0;scroll-snap-type:x mandatory}}
+@media(max-width:600px){.clock{display:none}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:minmax(0,1fr)}.erow{grid-template-columns:minmax(0,1fr)}.crow{grid-template-columns:minmax(0,1fr) auto}.crow .mono{grid-column:1/-1}.track figure{width:82vw;scroll-snap-align:start}.hz .stick{position:relative;height:auto;padding:72px 0;overflow:visible}.track{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);scrollbar-width:none;-webkit-overflow-scrolling:touch}.track::-webkit-scrollbar{display:none}.track figure:last-child{margin-right:var(--pad)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation:none!important}.media{clip-path:none}.media img,.name .ch,.fade,.rv{transform:none!important;opacity:1!important}.stmt .w{opacity:1}}
 .nojs .media{clip-path:none}.nojs .media img{transform:none}.nojs .name .ch,.nojs .fade,.nojs .rv{transform:none;opacity:1}.nojs .stmt .w{opacity:1}.nojs .loader{display:none}
 </style>
@@ -268,7 +268,7 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 
 <section class="hz" id="unreleased">
   <div class="stick">
-    <div class="wrap top"><h2 class="big">Unreleased <span class="ser">key visuals.</span></h2><p class="mono" style="opacity:.6;max-width:320px">Work that hasn’t gone public — yet. Scroll to drive through.</p></div>
+    <div class="wrap top"><h2 class="big">Unreleased <span class="ser">key visuals.</span></h2><p class="mono" style="opacity:.6;max-width:320px">Work that hasn’t gone public — yet. Scroll or swipe to drive through.</p></div>
     <div class="track" id="track"></div>
     <div class="hbar"><i id="hbar"></i></div>
   </div>
@@ -434,7 +434,8 @@ const clk=()=>{try{$('#clock').textContent=new Intl.DateTimeFormat('en-GB',{time
 /* scroll-driven loop */
 const nav=$('#nav'),prog=$('#prog'),hz=$('#unreleased'),track=$('#track'),hbar=$('#hbar'),pimg=$('#pimg'),ws=$$('#stmt .w'),R1=$('#r1'),R2=$('#r2'),BRr=$('#br');
 let lastY=scrollY,vel=0,o1=0,o2=0,o3=0,hzOn=false;
-function sizeHz(){hzOn=innerWidth>600&&!RM;if(hzOn){hz.style.height=(track.scrollWidth-innerWidth+innerHeight)+'px'}else{hz.style.height='';track.style.transform='';track.parentElement.style.overflowX='auto'}}
+function sizeHz(){hzOn=innerWidth>600&&!RM;if(hzOn){hz.style.height=(track.scrollWidth-innerWidth+innerHeight)+'px'}else{hz.style.height='';track.style.transform='';track.parentElement.style.overflowX=''}}
+track.addEventListener('scroll',()=>{if(hzOn)return;const m=track.scrollWidth-track.clientWidth;hbar.style.width=(m>0?track.scrollLeft/m*100:0)+'%'},{passive:true});
 addEventListener('resize',sizeHz);addEventListener('load',sizeHz);sizeHz();
 function frame(t){
  lenis&&lenis.raf(t);
