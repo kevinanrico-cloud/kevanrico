@@ -42,6 +42,20 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 /* nav */
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px var(--pad);transition:transform .5s var(--ease),background .3s}
 .nav.hide{transform:translateY(-100%)}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);position:relative;flex:none;background:color-mix(in srgb,var(--bg) 70%,transparent)}
+.burger span{position:absolute;left:13px;right:13px;height:1.5px;background:var(--ink);transition:transform .45s var(--ease),top .45s var(--ease)}
+.burger span:first-child{top:17px}.burger span:last-child{top:25px}
+.menu-open .burger span:first-child{top:21px;transform:rotate(45deg)}.menu-open .burger span:last-child{top:21px;transform:rotate(-45deg)}
+.menu{position:fixed;inset:0;z-index:45;background:var(--bg);display:flex;flex-direction:column;justify-content:space-between;padding:110px var(--pad) 36px;clip-path:inset(0 0 100% 0);transition:clip-path .7s var(--ease);visibility:hidden}
+.menu-open .menu{clip-path:inset(0 0 0 0);visibility:visible}
+.mlinks{display:flex;flex-direction:column}
+.mlinks a{display:flex;align-items:baseline;gap:16px;font-weight:600;font-size:clamp(40px,11vw,72px);letter-spacing:-.04em;line-height:1.05;padding:8px 0;border-bottom:1px solid var(--line);opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease),color .3s}
+.mlinks a i{font:500 12px var(--mono);font-style:normal;letter-spacing:.06em;color:var(--acc)}
+.menu-open .mlinks a{opacity:1;transform:none}
+.mlinks a:active{color:var(--acc)}
+.mfoot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--mut)}
+@media(max-width:1000px){.burger{display:block}.nav .clock{margin-left:auto}}
+
 .nav.solid{background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(14px)}
 .logo{font-weight:600;font-size:19px;letter-spacing:-.03em}
 .logo i{font-style:normal;color:var(--acc)}
@@ -216,6 +230,7 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 @media(max-width:600px){.clock{display:none}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:minmax(0,1fr)}.erow{grid-template-columns:minmax(0,1fr)}.crow{grid-template-columns:minmax(0,1fr) auto}.crow .mono{grid-column:1/-1}.track figure{width:82vw;scroll-snap-align:start}.hz .stick{position:relative;height:auto;padding:72px 0;overflow:visible}.track{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);scrollbar-width:none;-webkit-overflow-scrolling:touch}.track::-webkit-scrollbar{display:none}.track figure:last-child{margin-right:var(--pad)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation:none!important}.media{clip-path:none}.media img,.name .ch,.fade,.rv{transform:none!important;opacity:1!important}.stmt .w{opacity:1}}
 .nojs .media{clip-path:none}.nojs .media img{transform:none}.nojs .name .ch,.nojs .fade,.nojs .rv{transform:none;opacity:1}.nojs .stmt .w{opacity:1}.nojs .loader{display:none}
+.mlinks a:nth-child(2){transition-delay:.05s}.mlinks a:nth-child(3){transition-delay:.1s}.mlinks a:nth-child(4){transition-delay:.15s}.mlinks a:nth-child(5){transition-delay:.2s}.mlinks a:nth-child(6){transition-delay:.25s}
 </style>
 </head>
 <body class="nojs">
@@ -232,7 +247,12 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
   <a href="#top" class="logo">Kevin Anrico<i>.</i></a>
   <nav class="links"><a href="#work">Work</a><a href="#unreleased">Unreleased</a><a href="#about">About</a><a href="#approach">Approach</a><a href="#contact">Contact</a></nav>
   <div class="clock mono"><span class="dot"></span><span>Jakarta</span><span id="clock">--:--</span></div>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
 </header>
+<div class="menu" id="menu" aria-hidden="true">
+  <nav class="mlinks"><a href="#work"><i>01</i>Work</a><a href="#unreleased"><i>02</i>Unreleased</a><a href="#clients"><i>03</i>Brands</a><a href="#about"><i>04</i>About</a><a href="#approach"><i>05</i>Approach</a><a href="#contact"><i>06</i>Contact</a></nav>
+  <div class="mfoot mono"><a href="mailto:kevin.anrico@gmail.com">kevin.anrico@gmail.com</a><span>Jakarta, Indonesia</span></div>
+</div>
 
 <main>
 <section class="hero" id="top">
@@ -431,9 +451,16 @@ $$('.copy').forEach(b=>b.addEventListener('click',async()=>{try{await navigator.
 /* clock */
 const clk=()=>{try{$('#clock').textContent=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Jakarta',hour:'2-digit',minute:'2-digit'}).format(new Date())}catch(e){}};clk();setInterval(clk,20000);
 
+/* mobile menu */
+let menuOpen=false;const bg=$('#burger'),menu=$('#menu');
+function setMenu(o){menuOpen=o;document.body.classList.toggle('menu-open',o);bg.setAttribute('aria-expanded',o);bg.setAttribute('aria-label',o?'Close menu':'Open menu');menu.setAttribute('aria-hidden',!o);document.documentElement.style.overflow=o?'hidden':'';if(lenis)o?lenis.stop():lenis.start()}
+bg.addEventListener('click',()=>setMenu(!menuOpen));
+menu.querySelectorAll('.mlinks a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const h=a.getAttribute('href').slice(1);setMenu(false);setTimeout(()=>go(h),350)}));
+addEventListener('keydown',e=>{if(e.key==='Escape'&&menuOpen)setMenu(false)});
+addEventListener('resize',()=>{if(innerWidth>1000&&menuOpen)setMenu(false)});
 /* scroll-driven loop */
 const nav=$('#nav'),prog=$('#prog'),hz=$('#unreleased'),track=$('#track'),hbar=$('#hbar'),pimg=$('#pimg'),ws=$$('#stmt .w'),R1=$('#r1'),R2=$('#r2'),BRr=$('#br');
-let lastY=scrollY,vel=0,o1=0,o2=0,o3=0,hzOn=false;
+let lastIH=innerHeight,acc=0,navHidden=false,lastY=scrollY,vel=0,o1=0,o2=0,o3=0,hzOn=false;
 function sizeHz(){hzOn=innerWidth>600&&!RM;if(hzOn){hz.style.height=(track.scrollWidth-innerWidth+innerHeight)+'px'}else{hz.style.height='';track.style.transform='';track.parentElement.style.overflowX=''}}
 track.addEventListener('scroll',()=>{if(hzOn)return;const m=track.scrollWidth-track.clientWidth;hbar.style.width=(m>0?track.scrollLeft/m*100:0)+'%'},{passive:true});
 addEventListener('resize',sizeHz);addEventListener('load',sizeHz);sizeHz();
@@ -441,7 +468,7 @@ function frame(t){
  lenis&&lenis.raf(t);
  const y=scrollY,dy=y-lastY;lastY=y;vel+=(dy-vel)*.1;
  const H=document.documentElement.scrollHeight-innerHeight;prog.style.transform=`scaleX(${H>0?y/H:0})`;
- nav.classList.toggle('solid',y>40);nav.classList.toggle('hide',dy>4&&y>300&&!cs.classList.contains('on'));if(dy<-4)nav.classList.remove('hide');
+ nav.classList.toggle('solid',y>40);if(innerHeight!==lastIH){lastIH=innerHeight;acc=0}else if(y<120||cs.classList.contains('on')||menuOpen){navHidden=false;acc=0}else if(dy){if((dy>0)!==(acc>0))acc=0;acc+=dy;if(acc>70)navHidden=true;else if(acc<-40)navHidden=false}if(nav.classList.contains('hide')!==navHidden)nav.classList.toggle('hide',navHidden);
  if(!RM){const k=1+Math.min(Math.abs(vel)*.15,6),d=vel<0?-1:1;
   o1-=.5*k*d;o2+=.5*k*d;o3-=.7*k*d;
   const w1=R1.scrollWidth/2,w2=R2.scrollWidth/2,w3=BRr.scrollWidth/2;
