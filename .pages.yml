@@ -74,10 +74,10 @@ content:
                 max: 30
               extensions: [jpg, jpeg, png, webp]
           - name: gallery_columns
-            label: Gallery columns
+            label: Gallery columns (1 for wide screen rows; images named *_cutout show without a background)
             type: select
             options:
-              values: ["2", "3"]
+              values: ["1", "2", "3"]
 
       - name: unreleased
         label: Unreleased key visuals (16:9 works best)

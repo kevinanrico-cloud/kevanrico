@@ -192,7 +192,7 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 .chead h3{font-weight:600;font-size:clamp(30px,3.4vw,56px);letter-spacing:-.035em;line-height:1}
 .gal{padding:0 var(--pad);max-width:1680px;margin:0 auto;columns:3 280px;column-gap:16px}
 .gal figure{break-inside:avoid;margin-bottom:16px;overflow:hidden;background:var(--bg2)}
-.gal.w{columns:2 360px}
+.gal.w{columns:2 360px}.gal.one{columns:1}.gal figure.clear{background:none;overflow:visible}.gal figure.clear img{width:auto;max-width:100%;margin:0 auto}.media.clear{background:none;padding:6% 0}.media.clear img,.lead.clear img{width:auto!important;max-width:100%;max-height:640px;margin:0 auto;object-fit:contain}
 .gal img{width:100%;height:auto;animation:gin .9s var(--ease) both}
 @keyframes gin{from{opacity:0;transform:translateY(24px)}}
 .gal figure.pack{display:grid;place-items:center;background:#E2ECDD;padding:30px}
@@ -346,7 +346,7 @@ const tel=String(K.phone||'').replace(/[^0-9+]/g,'');
 $('#crows').innerHTML=`<div class="crow"><span class="mono" style="opacity:.6">Email</span><a href="mailto:${esc(K.email)}">${esc(K.email)}</a><button class="copy" data-copy="${esc(K.email)}">Copy</button></div><div class="crow"><span class="mono" style="opacity:.6">Phone</span><a href="tel:${tel}">${esc(K.phone)}</a><button class="copy" data-copy="${esc(K.phone)}">Copy</button></div><div class="crow"><span class="mono" style="opacity:.6">Based in</span><strong>${esc(K.location)}</strong><span></span></div>`;
 
 /* render */
-$('#cards').innerHTML=P.map(p=>`<article class="card" data-cat="${p.cat}" data-id="${p.id}" data-cur="View" tabindex="0" role="link" aria-label="${p.c} case study"><div class="media"><img src="${im(p.cv)}" alt="${p.c} — ${p.h}" loading="lazy"></div><div class="cmeta"><div><h3>${p.c}</h3><span class="ser">${p.t}</span></div><span class="mono"><span class="tagn">${p.no}</span> · ${p.sec}</span></div></article>`).join('');
+$('#cards').innerHTML=P.map(p=>`<article class="card" data-cat="${p.cat}" data-id="${p.id}" data-cur="View" tabindex="0" role="link" aria-label="${p.c} case study"><div class="media${/_cutout/.test(p.cv)?' clear':''}"><img src="${im(p.cv)}" alt="${p.c} — ${p.h}" loading="lazy"></div><div class="cmeta"><div><h3>${p.c}</h3><span class="ser">${p.t}</span></div><span class="mono"><span class="tagn">${p.no}</span> · ${p.sec}</span></div></article>`).join('');
 $('#list').innerHTML=P.map(p=>`<div class="lrow" data-cat="${p.cat}" data-id="${p.id}" data-img="${im(p.cv)}" tabindex="0" role="link"><span class="mono mut">${p.no}</span><h3>${p.c}</h3><span class="hm" style="color:var(--mut)">${p.h}</span><span class="mono mut hm">${p.sec}</span><span class="arr" aria-hidden="true">→</span></div>`).join('');
 $('#track').innerHTML=U.map((u,i)=>`<figure><img src="${im(u)}" alt="Unreleased key visual ${i+1}" loading="lazy"><figcaption class="mono"><span>Unreleased</span><span>${String(i+1).padStart(2,'0')} / ${U.length}</span></figcaption></figure>`).join('');
 $('#exp').innerHTML=EXP.map(e=>`<div class="erow rv"><span class="mono mut">${e[0]}</span><b>${e[1]}</b><span style="color:var(--mut)">${e[2]}</span></div>`).join('');
@@ -405,13 +405,13 @@ $$('.card,.lrow').forEach(c=>{c.addEventListener('click',()=>open(c.dataset.id))
 /* case sheet */
 const cs=$('#case');let lastFocus=null;
 function render(p){const i=P.indexOf(p),n=P[(i+1)%P.length];
- const gal=p.g.map((g,i)=>{const cls=/p14_213/.test(g)?'pack':/p08_113/.test(g)?'logo':'';return `<figure class="${cls}"><img src="${im(g)}" alt="${p.c} work" style="animation-delay:${.25+i*.08}s"></figure>`}).join('');
+ const gal=p.g.map((g,i)=>{const cls=/_cutout/.test(g)?'clear':/p08_113/.test(g)?'logo':'';return `<figure class="${cls}"><img src="${im(g)}" alt="${p.c} work" style="animation-delay:${.25+i*.08}s"></figure>`}).join('');
  cs.innerHTML=`<div class="cbar"><span class="mono"><span class="acc">${p.no}</span> — ${p.c}</span><button class="x" id="x">Close ✕</button></div>
  <div class="chero"><div><div class="no">${p.no}</div><h2>${p.c}</h2><span class="ser">${p.t}</span><p>${p.d}</p>
  <dl class="kv"><dt class="mono">Role</dt><dd>${p.role}</dd><dt class="mono">Scope</dt><dd>${p.scope}</dd><dt class="mono">Sector</dt><dd>${p.sec}</dd></dl></div>
- <div class="lead"><img src="${im(p.cv)}" alt="${p.c} key visual"></div></div>
+ <div class="lead${/_cutout/.test(p.cv)?' clear':''}"><img src="${im(p.cv)}" alt="${p.c} key visual"></div></div>
  <div class="chead"><p class="mono mut">The work — ${p.g.length} pieces</p><h3 style="margin-top:10px">${p.h}</h3></div>
- <div class="gal ${p.col==2?'w':''}">${gal}</div>
+ <div class="gal ${p.col==2?'w':p.col==1?'one':''}">${gal}</div>
  <a class="next" data-id="${n.id}" tabindex="0" role="link"><span class="mono mut">Next project — ${n.no}</span><b>${n.c} →</b></a>`;
  cs.scrollTop=0;$('#x').onclick=close;const nx=cs.querySelector('.next');nx.onclick=()=>open(n.id);nx.onkeydown=e=>{if(e.key=='Enter')open(n.id)};
 }

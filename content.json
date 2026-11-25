@@ -224,13 +224,13 @@
       "description": "After the rebrand, Pelita Air needed its new identity to work where customers actually book. I designed the mobile app UI so finding a flight, choosing seats and paying feels quick and calm, and carries the same colours and supergraphic energy as the aircraft.",
       "role": "UI/UX designer",
       "scope": "Mobile app · UI/UX",
-      "cover": "img/pelitaapp_cover.webp",
+      "cover": "img/pelitaapp_cover_cutout.webp",
       "gallery": [
-        "img/pelitaapp_home.webp",
-        "img/pelitaapp_booking.webp",
-        "img/pelitaapp_payment.webp"
+        "img/pelitaapp_home_cutout.webp",
+        "img/pelitaapp_booking_cutout.webp",
+        "img/pelitaapp_payment_cutout.webp"
       ],
-      "gallery_columns": "2"
+      "gallery_columns": "1"
     },
     {
       "slug": "kalista",
@@ -252,29 +252,8 @@
       "gallery_columns": "2"
     },
     {
-      "slug": "invi",
-      "number": "13",
-      "client": "INVI",
-      "category": "Brand systems & livery",
-      "sector": "EV charging",
-      "tagline": "Charge on",
-      "headline": "One identity, digital and physical",
-      "description": "Lead Art Director and designer for INVI — social visuals and vehicle livery, keeping one visual identity across digital and physical touchpoints.",
-      "role": "Lead Art Director & designer",
-      "scope": "Social · Livery · Booth",
-      "cover": "img/p25_396.webp",
-      "gallery": [
-        "img/p25_397.webp",
-        "img/p25_398.webp",
-        "img/p25_399.webp",
-        "img/p25_400.webp",
-        "img/p25_401.webp"
-      ],
-      "gallery_columns": "3"
-    },
-    {
       "slug": "leme",
-      "number": "14",
+      "number": "13",
       "client": "LEME",
       "category": "Brand systems & livery",
       "sector": "Heated tobacco",
@@ -293,7 +272,7 @@
     },
     {
       "slug": "apsari-artisan",
-      "number": "15",
+      "number": "14",
       "client": "Apsari Artisan",
       "category": "Brand systems & livery",
       "sector": "F&B",
@@ -308,23 +287,6 @@
         "img/p27_432.webp",
         "img/p27_433.webp",
         "img/p27_434.webp"
-      ],
-      "gallery_columns": "2"
-    },
-    {
-      "slug": "sandiva",
-      "number": "16",
-      "client": "Sandiva Law Firm",
-      "category": "Digital & UI",
-      "sector": "Legal",
-      "tagline": "A calmer first impression for a law firm",
-      "headline": "Website homepage",
-      "description": "Sandiva had just refreshed its visual identity and wanted a website to match. I designed a homepage that feels light and approachable, with a soft photographic backdrop and clear structure, for a profession people usually find intimidating.",
-      "role": "UI designer",
-      "scope": "Website · UI",
-      "cover": "img/sandiva_cover.webp",
-      "gallery": [
-        "img/sandiva_pages.webp"
       ],
       "gallery_columns": "2"
     }
@@ -414,7 +376,7 @@
     {
       "title": "Brands built to be seen at speed",
       "description": "An aircraft, a bus and a charging station each give you about two seconds of attention. My livery and supergraphic work is about recognition in motion: bold shapes, disciplined colour and identities that read from across the street or the runway.",
-      "examples": "Pelita Air · Kalista · INVI"
+      "examples": "Pelita Air · Kalista"
     },
     {
       "title": "From the booth to the app",
@@ -424,7 +386,7 @@
     {
       "title": "Design people can use, not just look at",
       "description": "More and more, the brand experience is a product. I bring art direction into websites and interfaces: clear flows, warm tone and visuals that make a feature feel like the brand. Asifit turned a supplement into a companion for new mothers.",
-      "examples": "Asifit · Pelita Air App · Sandiva"
+      "examples": "Asifit · Pelita Air App"
     },
     {
       "title": "Leading the team to final",
