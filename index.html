@@ -203,10 +203,11 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 .next:hover b{color:var(--acc)}
 
 /* cursor */
-.cur{position:fixed;left:0;top:0;z-index:99;pointer-events:none;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--acc);display:grid;place-items:center;transition:width .4s var(--ease),height .4s var(--ease),margin .4s var(--ease);font:600 13px var(--sans);color:#111}
-.cur b{opacity:0;transition:opacity .2s;font-weight:600}
-.cur.big{width:92px;height:92px;margin:-46px 0 0 -46px}.cur.big b{opacity:1}
-@media(pointer:coarse){.cur,.preview{display:none}}
+.cur{position:fixed;left:0;top:0;z-index:99;pointer-events:none;width:10px;height:10px;margin:-5px 0 0 -5px;background:var(--acc);display:grid;place-items:center;transition:width .24s steps(4),height .24s steps(4),margin .24s steps(4);font:500 12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#111;image-rendering:pixelated}
+.cur b{opacity:0;font-weight:500;transition:opacity .1s steps(2)}
+.cur.big{width:90px;height:90px;margin:-45px 0 0 -45px}.cur.big b{opacity:1}
+#trail{position:fixed;inset:0;width:100%;height:100%;z-index:98;pointer-events:none}
+@media(pointer:coarse){.cur,.preview,#trail{display:none}}
 
 @media(max-width:1000px){.links{display:none}.hgrid,.agrid,.egrid,.cgrid,.chero{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.photo{position:relative;top:0;max-width:520px}
 .cards .card{grid-column:span 12!important;margin-top:0!important}.lrow{grid-template-columns:50px minmax(0,1fr) 30px}.lrow .hm{display:none}}
@@ -221,6 +222,7 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
   <div class="mono" style="display:flex;justify-content:space-between"><span>Kevin Anrico</span><span>Portfolio 2026</span></div>
   <div><div class="bar"><i id="lbar"></i></div><div style="display:flex;justify-content:space-between;align-items:flex-end"><span class="mono">Art Director — Jakarta</span><span class="n" id="lnum">0</span></div></div>
 </div>
+<canvas id="trail" aria-hidden="true"></canvas>
 <div class="cur" id="cur"><b id="curt">View</b></div>
 <div class="preview" id="preview"><img id="previmg" alt=""></div>
 
@@ -381,7 +383,14 @@ $$('[data-v]').forEach(b=>b.addEventListener('click',()=>{$$('[data-v]').forEach
 
 /* cursor + preview */
 const cur=$('#cur'),curt=$('#curt'),pv=$('#preview'),pvi=$('#previmg');let mx=innerWidth/2,my=innerHeight/2,cx=mx,cy=my,px=mx,py=my;
-if(FINE){addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY});
+const G=10,trail=$('#trail'),tx=trail.getContext('2d'),cells=[];let lc=null;
+function sizeTrail(){const d=devicePixelRatio||1;trail.width=innerWidth*d;trail.height=innerHeight*d;tx.setTransform(d,0,0,d,0,0)}
+if(FINE&&!RM){sizeTrail();addEventListener('resize',sizeTrail)}else trail.remove();
+function addCells(x,y){if(RM)return;const c=[Math.floor(x/G),Math.floor(y/G)],now=performance.now();
+ if(!lc){cells.push({x:c[0],y:c[1],t:now})}else{const dx=c[0]-lc[0],dy=c[1]-lc[1],n=Math.min(40,Math.max(Math.abs(dx),Math.abs(dy)));for(let i=1;i<=n;i++)cells.push({x:Math.round(lc[0]+dx*i/n),y:Math.round(lc[1]+dy*i/n),t:now-(n-i)*6})}
+ lc=c;if(cells.length>400)cells.splice(0,cells.length-400)}
+if(FINE){addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;addCells(mx,my)});
+ document.addEventListener('pointerleave',()=>{lc=null;cur.style.opacity=0});document.addEventListener('pointerenter',()=>{cur.style.opacity=1});
  document.addEventListener('pointerover',e=>{const t=e.target.closest('[data-cur],.lrow,.next,.track figure');cur.classList.toggle('big',!!t);if(t)curt.textContent=t.classList.contains('lrow')||t.classList.contains('next')?'Open':(t.closest('.track')?'Drive':t.dataset.cur||'View');
   const r=e.target.closest('.lrow');if(r){pvi.src=r.dataset.img;pv.classList.add('on')}else pv.classList.remove('on')});
 }else cur.remove();
@@ -437,7 +446,16 @@ function frame(t){
  }
  if(hzOn){const r=hz.getBoundingClientRect(),max=track.scrollWidth-innerWidth,p=Math.max(0,Math.min(1,-r.top/(hz.offsetHeight-innerHeight)));track.style.transform=`translate3d(${-p*max}px,0,0)`;hbar.style.width=p*100+'%'}
  if(ws.length){const r=st.getBoundingClientRect(),p=Math.max(0,Math.min(1,(innerHeight*.85-r.top)/(r.height+innerHeight*.25)));const on=Math.round(p*ws.length);ws.forEach((w,i)=>w.classList.toggle('on',RM||i<on))}
- if(FINE&&cur.isConnected){cx+=(mx-cx)*.2;cy+=(my-cy)*.2;cur.style.transform=`translate3d(${cx}px,${cy}px,0)`;px+=(mx-px)*.12;py+=(my-py)*.12;pv.style.left=(px+24)+'px';pv.style.top=(py-120)+'px'}
+ if(FINE&&cur.isConnected){cx=Math.floor(mx/G)*G+G/2;cy=Math.floor(my/G)*G+G/2;cur.style.transform=`translate3d(${cx}px,${cy}px,0)`;
+  if(trail.isConnected){tx.clearRect(0,0,innerWidth,innerHeight);const now=performance.now(),L=460,h=G/2;
+   for(let i=cells.length-1;i>=0;i--){const c=cells[i],age=(now-c.t)/L;if(age>=1){cells.splice(i,1);continue}
+    const st=Math.floor(age*4),X=c.x*G,Y=c.y*G;tx.fillStyle='#FF4A1C';
+    if(st===0){tx.globalAlpha=1;tx.fillRect(X,Y,G,G)}
+    else if(st===1){tx.globalAlpha=.85;tx.fillRect(X,Y,h,h);tx.fillRect(X+h,Y+h,h,h);tx.fillRect(X+h,Y,h,h)}
+    else if(st===2){tx.globalAlpha=.7;const o=(c.x+c.y)%2?0:h;tx.fillRect(X+o,Y,h,h);tx.fillRect(X+h-o,Y+h,h,h)}
+    else{tx.globalAlpha=.5;tx.fillRect(X+((c.x%2)?h:0),Y+((c.y%2)?h:0),h,h)}}
+   tx.globalAlpha=1}
+px+=(mx-px)*.12;py+=(my-py)*.12;pv.style.left=(px+24)+'px';pv.style.top=(py-120)+'px'}
  requestAnimationFrame(frame)}
 requestAnimationFrame(frame);
 }
