@@ -1,0 +1,5 @@
+# Plain static site (index.html + content.json + img/). No framework, no
+# dependencies and no build step: Netlify publishes the repository root as-is.
+[build]
+  publish = "."
+  command = ""

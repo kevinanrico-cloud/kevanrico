@@ -1,0 +1,415 @@
+{
+  "hero": {
+    "title": "Art Director",
+    "intro": "Key visuals, integrated campaigns and brand systems for FMCG, mobility, aviation and tech brands in Indonesia. Currently at ANAKBRAND.",
+    "reel_label": "Selected work 2018 — 2026"
+  },
+  "projects": [
+    {
+      "slug": "telfast",
+      "number": "01",
+      "client": "Telfast 120mg",
+      "category": "Campaigns & KV",
+      "sector": "Pharma",
+      "tagline": "A new weapon in the arsenal",
+      "headline": "You can’t fight what you can’t name",
+      "description": "Fexofenadine 120mg went OTC, but many Indonesians still mistake allergic rhinitis for flu or masuk angin. We built a movement to make people name it first: the Sneeze Journal — a 5-part key visual series of educational and interactive social content.",
+      "role": "Art Director",
+      "scope": "360° campaign",
+      "cover": "img/p07_93.webp",
+      "gallery": [
+        "img/p08_113.webp",
+        "img/p08_114.webp",
+        "img/p08_115.webp",
+        "img/p08_116.webp",
+        "img/p08_117.webp",
+        "img/p08_118.webp"
+      ],
+      "gallery_columns": "3"
+    },
+    {
+      "slug": "shell",
+      "number": "02",
+      "client": "Shell Lubricants",
+      "category": "Campaigns & KV",
+      "sector": "Energy · B2B",
+      "tagline": "Performa tanpa batas",
+      "headline": "One look, every sector",
+      "description": "Led the visual identity and key visuals for Shell’s B2B campaign — a sector-by-sector KV system for industrial lubricants, plus collaterals such as greeting cards and DVRs. Same grid, same red band, different industry heroes.",
+      "role": "Lead Art Director",
+      "scope": "KV system · Collateral · DVR",
+      "cover": "img/p09_134.webp",
+      "gallery": [
+        "img/p10_152.webp",
+        "img/p10_153.webp",
+        "img/p10_154.webp",
+        "img/p10_155.webp",
+        "img/p10_156.webp",
+        "img/p10_157.webp"
+      ],
+      "gallery_columns": "3"
+    },
+    {
+      "slug": "wonderful-indonesia",
+      "number": "03",
+      "client": "Wonderful Indonesia",
+      "category": "Campaigns & KV",
+      "sector": "Tourism",
+      "tagline": "Local & international",
+      "headline": "Your gateway to the land of wonders",
+      "description": "Led visual development for a major tourism campaign targeting both local and international audiences — key visuals that capture the brand’s spirit across platforms, including a co-promo with Garuda Indonesia.",
+      "role": "Art Director",
+      "scope": "KV development",
+      "cover": "img/p11_171.webp",
+      "gallery": [
+        "img/p12_189.webp",
+        "img/p12_190.webp"
+      ],
+      "gallery_columns": "2"
+    },
+    {
+      "slug": "wellings",
+      "number": "04",
+      "client": "Wellings",
+      "category": "Campaigns & KV",
+      "sector": "Pharmacy",
+      "tagline": "Brand launch",
+      "headline": "Establishing a pharmacy brand",
+      "description": "Key visuals to establish the Wellings pharmacy brand in Indonesia, backing the company’s 2023 ambition.",
+      "role": "Art Director",
+      "scope": "Launch KVs",
+      "cover": "img/p13_200.webp",
+      "gallery": [
+        "img/p13_200.webp",
+        "img/p13_201.webp",
+        "img/p13_202.webp"
+      ],
+      "gallery_columns": "2"
+    },
+    {
+      "slug": "rinso",
+      "number": "05",
+      "client": "Rinso",
+      "category": "Campaigns & KV",
+      "sector": "FMCG",
+      "tagline": "Cerita bangga di balik noda",
+      "headline": "Vibrant, consistent, everywhere",
+      "description": "Lead Art Director for Rinso, developing key visuals for the main product campaigns — hands-on and supervising the team for consistent, vibrant brand communication.",
+      "role": "Lead Art Director",
+      "scope": "Product campaign KVs",
+      "cover": "img/p14_216.webp",
+      "gallery": [
+        "img/p14_213.webp",
+        "img/p14_214.webp",
+        "img/p14_215.webp",
+        "img/p14_216.webp",
+        "img/p14_217.webp",
+        "img/p14_218.webp"
+      ],
+      "gallery_columns": "3"
+    },
+    {
+      "slug": "relx",
+      "number": "06",
+      "client": "RELX",
+      "category": "Campaigns & KV",
+      "sector": "Lifestyle",
+      "tagline": "#DifferentWayToRefresh",
+      "headline": "Three flavours, one way to refresh",
+      "description": "Visual direction and identity for RELX’s H2 launches — a summer beverage flavour series (Orange Juice, Cherry Cola, Triple Berry Punch) and an open-system device — plus a refresh of the brand’s social visuals to match the new tone.",
+      "role": "Art Director",
+      "scope": "Launch KV · Social refresh",
+      "cover": "img/p15_234.webp",
+      "gallery": [
+        "img/p15_236.webp",
+        "img/p15_237.webp",
+        "img/p16_256.webp",
+        "img/p16_257.webp",
+        "img/p16_258.webp",
+        "img/p16_259.webp",
+        "img/p16_260.webp"
+      ],
+      "gallery_columns": "3"
+    },
+    {
+      "slug": "grabkios",
+      "number": "07",
+      "client": "GrabKios",
+      "category": "Campaigns & KV",
+      "sector": "Tech",
+      "tagline": "“Klub Cuan”",
+      "headline": "On-ground, in-app, on feed",
+      "description": "Drivers, warung owners and resellers want extra income rooted in a dream of a better life. Klub Cuan turned that into an integrated push: in-app gamification, booths at pasar and tier-2 malls, social amplification and push reminders.",
+      "role": "Art Director",
+      "scope": "Integrated campaign",
+      "cover": "img/p17_273.webp",
+      "gallery": [
+        "img/p18_291.webp",
+        "img/p18_292.webp",
+        "img/p18_293.webp",
+        "img/p18_294.webp",
+        "img/p18_295.webp"
+      ],
+      "gallery_columns": "3"
+    },
+    {
+      "slug": "xl-axiata",
+      "number": "08",
+      "client": "XL Axiata",
+      "category": "Campaigns & KV",
+      "sector": "Telco",
+      "tagline": "Quick service, brand intact",
+      "headline": "Social & owned channels",
+      "description": "Oversaw the visual direction for XL Axiata’s digital platforms — guiding the Junior Art Director on social and owned-channel content, including the CEO’s social media, for consistency and quality.",
+      "role": "Visual direction",
+      "scope": "Social · Owned · CEO channel",
+      "cover": "img/p19_309.webp",
+      "gallery": [
+        "img/p19_308.webp",
+        "img/p19_309.webp",
+        "img/p19_310.webp",
+        "img/p19_311.webp"
+      ],
+      "gallery_columns": "2"
+    },
+    {
+      "slug": "pelita-air",
+      "number": "09",
+      "client": "Pelita Air",
+      "category": "Brand systems & livery",
+      "sector": "Aviation",
+      "tagline": "Rebrand to commercial airline",
+      "headline": "Logo, livery, palette, supergraphic",
+      "description": "Led the rebranding of Pelita Air as it moved into commercial flight — livery design, supergraphics and in-flight materials such as the safety card.",
+      "role": "Art Director",
+      "scope": "Livery · Supergraphics",
+      "cover": "img/p22_348.webp",
+      "gallery": [
+        "img/p21_330.webp",
+        "img/p22_349.webp",
+        "img/p22_350.webp",
+        "img/p22_351.webp",
+        "img/p22_352.webp"
+      ],
+      "gallery_columns": "2"
+    },
+    {
+      "slug": "kalista",
+      "number": "10",
+      "client": "Kalista",
+      "category": "Brand systems & livery",
+      "sector": "EV transport",
+      "tagline": "B2B EV transport",
+      "headline": "A mark that moves",
+      "description": "Full branding for a B2B electric-vehicle transport service — logo design, vehicle livery and supporting materials such as seat covers and video content.",
+      "role": "Art Director",
+      "scope": "Brand · Livery",
+      "cover": "img/p23_365.webp",
+      "gallery": [
+        "img/p24_383.webp",
+        "img/p24_384.webp",
+        "img/p24_385.webp"
+      ],
+      "gallery_columns": "2"
+    },
+    {
+      "slug": "invi",
+      "number": "11",
+      "client": "INVI",
+      "category": "Brand systems & livery",
+      "sector": "EV charging",
+      "tagline": "Charge on",
+      "headline": "One identity, digital and physical",
+      "description": "Lead Art Director and designer for INVI — social visuals and vehicle livery, keeping one visual identity across digital and physical touchpoints.",
+      "role": "Lead Art Director & designer",
+      "scope": "Social · Livery · Booth",
+      "cover": "img/p25_396.webp",
+      "gallery": [
+        "img/p25_397.webp",
+        "img/p25_398.webp",
+        "img/p25_399.webp",
+        "img/p25_400.webp",
+        "img/p25_401.webp"
+      ],
+      "gallery_columns": "3"
+    },
+    {
+      "slug": "leme",
+      "number": "12",
+      "client": "LEME",
+      "category": "Brand systems & livery",
+      "sector": "Heated tobacco",
+      "tagline": "A new entrant, built for Indonesia",
+      "headline": "From packaging to content",
+      "description": "Led visual development for a new player in the heated-tobacco category — brand strategy execution, product branding and every visual asset from packaging to content, tailored for Indonesia.",
+      "role": "Visual development lead",
+      "scope": "Product branding · Packaging · Content",
+      "cover": "img/p26_415.webp",
+      "gallery": [
+        "img/p26_416.webp",
+        "img/p26_417.webp",
+        "img/p26_418.webp"
+      ],
+      "gallery_columns": "3"
+    },
+    {
+      "slug": "apsari-artisan",
+      "number": "13",
+      "client": "Apsari Artisan",
+      "category": "Brand systems & livery",
+      "sector": "F&B",
+      "tagline": "Brand guidelines",
+      "headline": "Food, bakery, coffee — one system",
+      "description": "Brand guidelines covering logo usage, photo direction, tone of voice and palette.",
+      "role": "Art Director",
+      "scope": "Brand guidelines",
+      "cover": "img/p27_430.webp",
+      "gallery": [
+        "img/p27_431.webp",
+        "img/p27_432.webp",
+        "img/p27_433.webp",
+        "img/p27_434.webp"
+      ],
+      "gallery_columns": "2"
+    }
+  ],
+  "unreleased": [
+    "img/p29_454.webp",
+    "img/p29_455.webp",
+    "img/p29_456.webp",
+    "img/p29_457.webp",
+    "img/p29_458.webp",
+    "img/p29_459.webp",
+    "img/p30_473.webp",
+    "img/p30_474.webp",
+    "img/p30_475.webp",
+    "img/p30_476.webp",
+    "img/p30_477.webp",
+    "img/p30_478.webp"
+  ],
+  "about": {
+    "photo": "img/p02_34.webp",
+    "statement": "I turn ideas into compelling visuals — building brands, executing campaigns and crafting imagery that",
+    "statement_italic": "tells a story.",
+    "bio": "I’m an Art Director based in Jakarta with 8+ years in graphic design, leading creative teams and driving visual strategy. My approach blends strategic thinking with strong visual execution, for clear and impactful results.",
+    "stats": [
+      {
+        "value": 8,
+        "suffix": "+",
+        "label": "Years in design"
+      },
+      {
+        "value": 3,
+        "suffix": "",
+        "label": "Years leading teams"
+      },
+      {
+        "value": 5,
+        "suffix": "",
+        "label": "Studios & agencies"
+      },
+      {
+        "value": 15,
+        "suffix": "",
+        "label": "Brands"
+      }
+    ]
+  },
+  "experience": [
+    {
+      "years": "2023 — Now",
+      "company": "ANAKBRAND",
+      "role": "Art Director"
+    },
+    {
+      "years": "2021 — 2022",
+      "company": "Owl & Foxes",
+      "role": "Art Director"
+    },
+    {
+      "years": "2020 — 2021",
+      "company": "Bit Group Asia",
+      "role": "Senior Graphic Designer"
+    },
+    {
+      "years": "2019 — 2020",
+      "company": "That Line Project",
+      "role": "Graphic Designer"
+    },
+    {
+      "years": "2018 — 2019",
+      "company": "ISA Art + Design",
+      "role": "Graphic Designer"
+    }
+  ],
+  "capabilities": [
+    {
+      "title": "Key visual",
+      "description": "Campaign KV development, from concept to final retouch."
+    },
+    {
+      "title": "Campaigns",
+      "description": "360° and integrated campaigns, on-ground to in-app."
+    },
+    {
+      "title": "OOH & print",
+      "description": "Billboards, posters, retail and event booths."
+    },
+    {
+      "title": "Motion",
+      "description": "DVR and video direction."
+    },
+    {
+      "title": "Livery",
+      "description": "Aircraft, bus and vehicle supergraphics."
+    },
+    {
+      "title": "Brand systems",
+      "description": "Identity, packaging and brand guidelines."
+    },
+    {
+      "title": "Leadership",
+      "description": "Directing junior ADs and designers to final."
+    }
+  ],
+  "approach": [
+    {
+      "title": "Find the tension",
+      "description": "Slow down on the brief. Find the real tension behind the ask before touching a layout."
+    },
+    {
+      "title": "Commit early",
+      "description": "Commit to one sharp idea and one visual direction early, and with conviction."
+    },
+    {
+      "title": "Nail the key visual",
+      "description": "The single frame the whole campaign hangs on."
+    },
+    {
+      "title": "Carry it everywhere",
+      "description": "TVC, OOH, print, digital and on-ground — all on one line."
+    }
+  ],
+  "clients": [
+    "Telfast",
+    "Shell",
+    "Danamon",
+    "Wonderful Indonesia",
+    "Garuda Indonesia",
+    "Wellings",
+    "Rinso",
+    "RELX",
+    "GrabKios",
+    "XL Axiata",
+    "Pelita Air",
+    "Kalista",
+    "INVI",
+    "LEME",
+    "Apsari Artisan"
+  ],
+  "contact": {
+    "email": "kevin.anrico@gmail.com",
+    "phone": "+62 818 8282 3811",
+    "location": "Jakarta, Indonesia"
+  }
+}

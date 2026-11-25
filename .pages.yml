@@ -1,0 +1,176 @@
+media:
+  input: img
+  output: img
+content:
+  - name: website
+    label: Website content
+    type: file
+    path: content.json
+    format: json
+    fields:
+      - name: hero
+        label: Hero (top of page)
+        type: object
+        fields:
+          - name: title
+            label: Title under your name
+            type: string
+          - name: intro
+            label: Intro paragraph
+            type: text
+          - name: reel_label
+            label: Scroll link label
+            type: string
+
+      - name: projects
+        label: Projects
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{number} — {client}"
+        fields:
+          - name: slug
+            label: Link name (lowercase, hyphens, no spaces — e.g. pelita-air)
+            type: string
+            required: true
+          - name: number
+            label: Number
+            type: string
+          - name: client
+            label: Client
+            type: string
+            required: true
+          - name: category
+            label: Category (used by the filter buttons)
+            type: select
+            options:
+              values: [Campaigns & KV, Brand systems & livery]
+          - name: sector
+            label: Sector
+            type: string
+          - name: tagline
+            label: Tagline (shown in italic)
+            type: string
+          - name: headline
+            label: Gallery headline
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: role
+            label: Role
+            type: string
+          - name: scope
+            label: Scope
+            type: string
+          - name: cover
+            label: Cover image
+            type: image
+            options:
+              extensions: [jpg, jpeg, png, webp]
+          - name: gallery
+            label: Gallery images (in order)
+            type: image
+            options:
+              multiple:
+                max: 30
+              extensions: [jpg, jpeg, png, webp]
+          - name: gallery_columns
+            label: Gallery columns
+            type: select
+            options:
+              values: ["2", "3"]
+
+      - name: unreleased
+        label: Unreleased key visuals (16:9 works best)
+        type: image
+        options:
+          multiple:
+            max: 40
+          extensions: [jpg, jpeg, png, webp]
+
+      - name: about
+        label: About
+        type: object
+        fields:
+          - name: photo
+            label: Portrait photo
+            type: image
+          - name: statement
+            label: Big statement
+            type: text
+          - name: statement_italic
+            label: Statement ending (shown in italic)
+            type: string
+          - name: bio
+            label: Bio paragraph
+            type: text
+          - name: stats
+            label: Stats
+            type: object
+            list: true
+            fields:
+              - name: value
+                label: Number
+                type: number
+              - name: suffix
+                label: Suffix (e.g. +)
+                type: string
+              - name: label
+                label: Label
+                type: string
+
+      - name: experience
+        label: Experience
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{company}"
+        fields:
+          - name: years
+            label: Years (e.g. 2023 — Now)
+            type: string
+          - name: company
+            label: Company
+            type: string
+          - name: role
+            label: Role
+            type: string
+
+      - name: capabilities
+        label: Capabilities
+        type: object
+        list: true
+        fields:
+          - name: title
+            type: string
+          - name: description
+            type: text
+
+      - name: approach
+        label: Approach steps
+        type: object
+        list: true
+        fields:
+          - name: title
+            type: string
+          - name: description
+            type: text
+
+      - name: clients
+        label: Clients (scrolling list)
+        type: string
+        list: true
+
+      - name: contact
+        label: Contact
+        type: object
+        fields:
+          - name: email
+            type: string
+          - name: phone
+            type: string
+          - name: location
+            type: string
