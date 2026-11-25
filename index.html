@@ -203,9 +203,9 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 .next:hover b{color:var(--acc)}
 
 /* cursor */
-.cur{position:fixed;left:0;top:0;z-index:99;pointer-events:none;width:10px;height:10px;margin:-5px 0 0 -5px;background:var(--acc);display:grid;place-items:center;transition:width .24s steps(4),height .24s steps(4),margin .24s steps(4);font:500 12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#111;image-rendering:pixelated}
+.cur{position:fixed;left:0;top:0;z-index:99;pointer-events:none;width:16px;height:16px;margin:-8px 0 0 -8px;background:var(--acc);display:grid;place-items:center;transition:width .24s steps(4),height .24s steps(4),margin .24s steps(4);font:500 12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#111;image-rendering:pixelated}
 .cur b{opacity:0;font-weight:500;transition:opacity .1s steps(2)}
-.cur.big{width:90px;height:90px;margin:-45px 0 0 -45px}.cur.big b{opacity:1}
+.cur.big{width:96px;height:96px;margin:-48px 0 0 -48px}.cur.big b{opacity:1}
 #trail{position:fixed;inset:0;width:100%;height:100%;z-index:98;pointer-events:none}
 @media(pointer:coarse){.cur,.preview,#trail{display:none}}
 
@@ -383,7 +383,7 @@ $$('[data-v]').forEach(b=>b.addEventListener('click',()=>{$$('[data-v]').forEach
 
 /* cursor + preview */
 const cur=$('#cur'),curt=$('#curt'),pv=$('#preview'),pvi=$('#previmg');let mx=innerWidth/2,my=innerHeight/2,cx=mx,cy=my,px=mx,py=my;
-const G=10,trail=$('#trail'),tx=trail.getContext('2d'),cells=[];let lc=null;
+const G=16,trail=$('#trail'),tx=trail.getContext('2d'),cells=[];let lc=null;
 function sizeTrail(){const d=devicePixelRatio||1;trail.width=innerWidth*d;trail.height=innerHeight*d;tx.setTransform(d,0,0,d,0,0)}
 if(FINE&&!RM){sizeTrail();addEventListener('resize',sizeTrail)}else trail.remove();
 function addCells(x,y){if(RM)return;const c=[Math.floor(x/G),Math.floor(y/G)],now=performance.now();
@@ -449,11 +449,7 @@ function frame(t){
  if(FINE&&cur.isConnected){cx=Math.floor(mx/G)*G+G/2;cy=Math.floor(my/G)*G+G/2;cur.style.transform=`translate3d(${cx}px,${cy}px,0)`;
   if(trail.isConnected){tx.clearRect(0,0,innerWidth,innerHeight);const now=performance.now(),L=460,h=G/2;
    for(let i=cells.length-1;i>=0;i--){const c=cells[i],age=(now-c.t)/L;if(age>=1){cells.splice(i,1);continue}
-    const st=Math.floor(age*4),X=c.x*G,Y=c.y*G;tx.fillStyle='#FF4A1C';
-    if(st===0){tx.globalAlpha=1;tx.fillRect(X,Y,G,G)}
-    else if(st===1){tx.globalAlpha=.85;tx.fillRect(X,Y,h,h);tx.fillRect(X+h,Y+h,h,h);tx.fillRect(X+h,Y,h,h)}
-    else if(st===2){tx.globalAlpha=.7;const o=(c.x+c.y)%2?0:h;tx.fillRect(X+o,Y,h,h);tx.fillRect(X+h-o,Y+h,h,h)}
-    else{tx.globalAlpha=.5;tx.fillRect(X+((c.x%2)?h:0),Y+((c.y%2)?h:0),h,h)}}
+    const st=Math.floor(age*4),sz=[16,12,8,4][st],o=(G-sz)/2;tx.globalAlpha=1;tx.fillStyle='#FF4A1C';tx.fillRect(c.x*G+o,c.y*G+o,sz,sz)}
    tx.globalAlpha=1}
 px+=(mx-px)*.12;py+=(my-py)*.12;pv.style.left=(px+24)+'px';pv.style.top=(py-120)+'px'}
  requestAnimationFrame(frame)}
