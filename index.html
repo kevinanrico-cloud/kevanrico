@@ -13,6 +13,7 @@
    PICTURE: an endless, scroll-driven reel of real key visuals under a giant name
    COLOUR and TYPE: paper #F3F1EC / ink #111 / signal orange #FF4A1C; Inter Tight + Instrument Serif italic + Plex Mono
    LAYOUT: full-bleed bands, 12-col content to 1600px, case studies open as full-screen sheets */
+:root{--r:14px}
 :root{color-scheme:light dark;--bg:light-dark(#F3F1EC,#111111);--bg2:light-dark(#E9E6DF,#1B1A19);--ink:light-dark(#111111,#F3F1EC);--mut:light-dark(#77736C,#9A958D);--line:light-dark(rgba(17,17,17,.15),rgba(243,241,236,.16));--acc:#FF4A1C;--inv:light-dark(#111111,#F3F1EC);--invt:light-dark(#F3F1EC,#111111);
 --sans:"Inter Tight",system-ui,sans-serif;--ser:"Instrument Serif",Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--pad:max(4vw,18px);--ease:cubic-bezier(.16,1,.3,1)}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
@@ -70,7 +71,7 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 .cue:hover{border-color:var(--ink)}.cue:hover span{background:var(--acc);color:#111;transform:translateY(3px)}
 .reel{margin-top:clamp(30px,4vw,56px);display:grid;gap:12px;overflow:hidden}
 .row{display:flex;gap:12px;width:max-content;will-change:transform}
-.row img{height:clamp(140px,17vw,260px);width:auto;object-fit:cover;border-radius:2px;flex:none}
+.row img{height:clamp(140px,17vw,260px);width:auto;object-fit:cover;border-radius:var(--r);flex:none}
 .reelwrap{padding-bottom:22px}
 
 /* work */
@@ -86,8 +87,8 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 .card:nth-child(4n+3){grid-column:2/span 5}.card:nth-child(4n){grid-column:8/span 5;margin-top:10vh}
 .card.hid{display:none}
 .cards.flat .card{grid-column:span 6!important;margin-top:0!important}
-.media{position:relative;overflow:hidden;background:var(--bg2);clip-path:inset(100% 0 0 0);transition:clip-path 1.4s var(--ease)}
-.in .media,.media.in{clip-path:inset(0 0 0 0)}
+.media{position:relative;overflow:hidden;border-radius:var(--r);background:var(--bg2);clip-path:inset(100% 0 0 0 round var(--r));transition:clip-path 1.4s var(--ease)}
+.in .media,.media.in{clip-path:inset(0 0 0 0 round var(--r))}
 .media img{width:100%;height:100%;object-fit:cover;transform:scale(1.25);transition:transform 1.8s var(--ease)}
 .in .media img{transform:scale(1)}
 .card:hover .media img{transform:scale(1.05);transition-duration:1s}
@@ -102,7 +103,7 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 .lrow h3{font-weight:600;font-size:clamp(28px,3.6vw,60px);letter-spacing:-.04em;line-height:1}
 .lrow:hover{padding-left:20px;color:var(--acc)}
 .lrow .arr{font-size:26px;transition:transform .4s var(--ease)}.lrow:hover .arr{transform:translateX(6px) rotate(-45deg)}
-.preview{position:fixed;left:0;top:0;width:340px;aspect-ratio:4/3;pointer-events:none;z-index:40;overflow:hidden;opacity:0;transform:scale(.6);transition:opacity .3s,transform .4s var(--ease)}
+.preview{position:fixed;left:0;top:0;width:340px;aspect-ratio:4/3;pointer-events:none;z-index:40;overflow:hidden;border-radius:var(--r);opacity:0;transform:scale(.6);transition:opacity .3s,transform .4s var(--ease)}
 .preview.on{opacity:1;transform:scale(1)}
 .preview img{width:100%;height:100%;object-fit:cover}
 
@@ -112,13 +113,13 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 .hz .top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
 .track{display:flex;gap:18px;padding:0 var(--pad);width:max-content;will-change:transform}
 .track figure{width:min(46vw,760px);flex:none}
-.track img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.track img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r)}
 .track figcaption{margin-top:12px;display:flex;justify-content:space-between;opacity:.6}
 .hbar{height:2px;background:rgba(127,127,127,.3);margin:0 var(--pad)}.hbar i{display:block;height:100%;background:var(--acc);width:0}
 
 /* about */
 .agrid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(30px,5vw,100px);align-items:start}
-.photo{overflow:hidden;aspect-ratio:2/3;position:sticky;top:100px}
+.photo{overflow:hidden;border-radius:var(--r);aspect-ratio:2/3;position:sticky;top:100px}
 .photo img{width:100%;height:118%;object-fit:cover;will-change:transform}
 .stmt{font-weight:500;font-size:clamp(30px,3.6vw,60px);line-height:1.08;letter-spacing:-.025em}
 .stmt .w{opacity:.14;transition:opacity .25s}.stmt .w.on{opacity:1}
@@ -186,13 +187,13 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 .kv{margin-top:32px;display:grid;grid-template-columns:110px minmax(0,1fr)}
 .kv dt,.kv dd{padding:12px 0;border-top:1px solid var(--line)}
 .kv dt{color:var(--mut)}
-.chero .lead{overflow:hidden;align-self:start}
+.chero .lead{overflow:hidden;border-radius:var(--r);align-self:start}.chero .lead.clear{overflow:visible;border-radius:0}
 .chero .lead img{width:100%;height:auto}
 .chead{padding:0 var(--pad);max-width:1680px;margin:0 auto 26px}
 .chead h3{font-weight:600;font-size:clamp(30px,3.4vw,56px);letter-spacing:-.035em;line-height:1}
-.gal{padding:0 var(--pad);max-width:1680px;margin:0 auto;columns:3 280px;column-gap:16px}
-.gal figure{break-inside:avoid;margin-bottom:16px;overflow:hidden;background:var(--bg2)}
-.gal.w{columns:2 360px}.gal.one{columns:1}.gal figure.clear{background:none;overflow:visible}.gal figure.clear img{width:auto;max-width:100%;margin:0 auto}.media.clear{background:none;padding:6% 0}.media.clear img,.lead.clear img{width:auto!important;max-width:100%;max-height:640px;margin:0 auto;object-fit:contain}
+.gal{padding:0 var(--pad);max-width:1680px;margin:0 auto;columns:3 280px;column-gap:clamp(20px,2.6vw,40px)}
+.gal figure{break-inside:avoid;margin-bottom:clamp(20px,2.6vw,40px);overflow:hidden;border-radius:var(--r);background:var(--bg2)}
+.gal.w{columns:2 360px}.gal.one{columns:1}.gal figure.clear{background:none;overflow:visible;border-radius:0}.gal figure.clear img{width:auto;max-width:100%;margin:0 auto}.media.clear{background:none;padding:6% 0;overflow:visible;clip-path:none;opacity:0;transition:opacity 1.2s var(--ease)}.in .media.clear{opacity:1}.media.clear img,.lead.clear img{width:auto!important;max-width:100%;max-height:640px;margin:0 auto;object-fit:contain}
 .gal img{width:100%;height:auto;animation:gin .9s var(--ease) both}
 @keyframes gin{from{opacity:0;transform:translateY(24px)}}
 .gal figure.pack{display:grid;place-items:center;background:#E2ECDD;padding:30px}
