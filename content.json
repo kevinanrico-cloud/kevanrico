@@ -88,27 +88,8 @@
       "gallery_columns": "2"
     },
     {
-      "slug": "wellings",
-      "number": "05",
-      "client": "Wellings",
-      "category": "Campaigns & KV",
-      "sector": "Pharmacy",
-      "tagline": "Brand launch",
-      "headline": "Establishing a pharmacy brand",
-      "description": "Key visuals to establish the Wellings pharmacy brand in Indonesia, backing the company’s 2023 ambition.",
-      "role": "Art Director",
-      "scope": "Launch KVs",
-      "cover": "img/p13_200.webp",
-      "gallery": [
-        "img/p13_200.webp",
-        "img/p13_201.webp",
-        "img/p13_202.webp"
-      ],
-      "gallery_columns": "2"
-    },
-    {
       "slug": "relx",
-      "number": "06",
+      "number": "05",
       "client": "RELX",
       "category": "Campaigns & KV",
       "sector": "Lifestyle",
@@ -131,7 +112,7 @@
     },
     {
       "slug": "grabkios",
-      "number": "07",
+      "number": "06",
       "client": "GrabKios",
       "category": "Campaigns & KV",
       "sector": "Tech",
@@ -151,25 +132,8 @@
       "gallery_columns": "3"
     },
     {
-      "slug": "art-jakarta",
-      "number": "08",
-      "client": "ISA Art + Design × Art Jakarta",
-      "category": "Campaigns & KV",
-      "sector": "Art · Exhibition",
-      "tagline": "H.E.R and Square One",
-      "headline": "Two exhibitions, one booth",
-      "description": "Key visuals to open ISA Art + Design’s booth at Art Jakarta 2019. H.E.R celebrated female artists shaping the art world; Square One showcased legacy works by renowned artists. Each needed its own voice while sitting side by side in the same space.",
-      "role": "Graphic designer",
-      "scope": "Key visuals · Exhibition",
-      "cover": "img/isa_kv.webp",
-      "gallery": [
-        "img/isa_kv.webp"
-      ],
-      "gallery_columns": "2"
-    },
-    {
       "slug": "xl-axiata",
-      "number": "09",
+      "number": "07",
       "client": "XL Axiata",
       "category": "Campaigns & KV",
       "sector": "Telco",
@@ -189,7 +153,7 @@
     },
     {
       "slug": "pelita-air",
-      "number": "10",
+      "number": "08",
       "client": "Pelita Air",
       "category": "Brand systems & livery",
       "sector": "Aviation",
@@ -215,26 +179,24 @@
     },
     {
       "slug": "pelita-air-app",
-      "number": "11",
+      "number": "09",
       "client": "Pelita Air App",
       "category": "Digital & UI",
       "sector": "Aviation",
       "tagline": "Booking that feels like the brand",
-      "headline": "Home, booking and checkout",
+      "headline": "From search to confirmation",
       "description": "After the rebrand, Pelita Air needed its new identity to work where customers actually book. I designed the mobile app UI so finding a flight, choosing seats and paying feels quick and calm, and carries the same colours and supergraphic energy as the aircraft.",
       "role": "UI/UX designer",
       "scope": "Mobile app · UI/UX",
       "cover": "img/pelitaapp_cover_cutout.webp",
       "gallery": [
-        "img/pelitaapp_home_cutout.webp",
-        "img/pelitaapp_booking_cutout.webp",
-        "img/pelitaapp_payment_cutout.webp"
+        "img/pelitaapp_flow_cutout.webp"
       ],
       "gallery_columns": "1"
     },
     {
       "slug": "kalista",
-      "number": "12",
+      "number": "10",
       "client": "Kalista",
       "category": "Brand systems & livery",
       "sector": "EV transport",
@@ -253,7 +215,7 @@
     },
     {
       "slug": "leme",
-      "number": "13",
+      "number": "11",
       "client": "LEME",
       "category": "Brand systems & livery",
       "sector": "Heated tobacco",
@@ -272,7 +234,7 @@
     },
     {
       "slug": "apsari-artisan",
-      "number": "14",
+      "number": "12",
       "client": "Apsari Artisan",
       "category": "Brand systems & livery",
       "sector": "F&B",
@@ -366,7 +328,7 @@
     {
       "title": "One frame the whole campaign hangs on",
       "description": "A campaign lives or dies on its key visual. I push for the single image that explains the idea without a caption, then build it until it holds up on a billboard and still reads in a 4:5 feed.",
-      "examples": "Wonderful Indonesia · RELX · Art Jakarta"
+      "examples": "Wonderful Indonesia · RELX"
     },
     {
       "title": "Systems that flex without breaking",
