@@ -42,7 +42,7 @@ content:
             label: Category (used by the filter buttons)
             type: select
             options:
-              values: [Campaigns & KV, Brand systems & livery]
+              values: [Campaigns & KV, Brand systems & livery, Digital & UI]
           - name: sector
             label: Sector
             type: string

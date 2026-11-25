@@ -253,6 +253,7 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
         <button class="pill" data-f="all" aria-pressed="true">All</button>
         <button class="pill" data-f="kv" aria-pressed="false">Campaigns & KV</button>
         <button class="pill" data-f="bs" aria-pressed="false">Brand systems & livery</button>
+        <button class="pill" data-f="ui" aria-pressed="false">Digital & UI</button>
         <span class="sep" aria-hidden="true"></span>
         <button class="pill" data-v="grid" aria-pressed="true">Grid</button>
         <button class="pill" data-v="list" aria-pressed="false">Index</button>
@@ -322,7 +323,7 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 {
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function init(C){
-const P=(C.projects||[]).map(p=>({id:String(p.slug||'').replace(/[^a-zA-Z0-9-]/g,''),no:esc(p.number),c:esc(p.client),cat:/brand/i.test(p.category||'')?'bs':'kv',sec:esc(p.sector),t:esc(p.tagline),h:esc(p.headline),d:esc(p.description),role:esc(p.role),scope:esc(p.scope),cv:esc(p.cover),g:(p.gallery||[]).map(esc),col:+p.gallery_columns||3}));
+const P=(C.projects||[]).map(p=>({id:String(p.slug||'').replace(/[^a-zA-Z0-9-]/g,''),no:esc(p.number),c:esc(p.client),cat:/brand/i.test(p.category||'')?'bs':/ui|digital/i.test(p.category||'')?'ui':'kv',sec:esc(p.sector),t:esc(p.tagline),h:esc(p.headline),d:esc(p.description),role:esc(p.role),scope:esc(p.scope),cv:esc(p.cover),g:(p.gallery||[]).map(esc),col:+p.gallery_columns||3}));
 const U=(C.unreleased||[]).map(esc);
 const EXP=(C.experience||[]).map(e=>[esc(e.years),esc(e.company),esc(e.role)]);
 const CAPS=(C.capabilities||[]).map(c=>[esc(c.title),esc(c.description)]);

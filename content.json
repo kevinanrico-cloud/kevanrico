@@ -86,26 +86,25 @@
       "gallery_columns": "2"
     },
     {
-      "slug": "rinso",
+      "slug": "asifit",
       "number": "05",
-      "client": "Rinso",
-      "category": "Campaigns & KV",
-      "sector": "FMCG",
-      "tagline": "Cerita bangga di balik noda",
-      "headline": "Vibrant, consistent, everywhere",
-      "description": "Lead Art Director for Rinso, developing key visuals for the main product campaigns — hands-on and supervising the team for consistent, vibrant brand communication.",
-      "role": "Lead Art Director",
-      "scope": "Product campaign KVs",
-      "cover": "img/p14_216.webp",
+      "client": "Asifit",
+      "category": "Digital & UI",
+      "sector": "Health · Kimia Farma",
+      "tagline": "A digital companion for breastfeeding mothers",
+      "headline": "Kisah, check-ins and care — in one place",
+      "description": "Website and product UI for Asifit, Kimia Farma’s breastfeeding supplement. Beyond the brand homepage, the experience gives mothers somewhere to return to: GEMAS, a daily check-in on mood and nutrition; Kisah Kasih Ibu, a space to share their stories; and a personal dashboard that turns their answers into gentle insights and recommendations.",
+      "role": "Art Director · UI design",
+      "scope": "Website · UI/UX · Key visuals",
+      "cover": "img/asifit_cover.webp",
       "gallery": [
-        "img/p14_213.webp",
-        "img/p14_214.webp",
-        "img/p14_215.webp",
-        "img/p14_216.webp",
-        "img/p14_217.webp",
-        "img/p14_218.webp"
+        "img/asifit_home.webp",
+        "img/asifit_gemas.webp",
+        "img/asifit_signup.webp",
+        "img/asifit_story.webp",
+        "img/asifit_dashboard.webp"
       ],
-      "gallery_columns": "3"
+      "gallery_columns": "2"
     },
     {
       "slug": "relx",
@@ -358,6 +357,10 @@
     {
       "title": "Livery",
       "description": "Aircraft, bus and vehicle supergraphics."
+    },
+    {
+      "title": "UI design",
+      "description": "Websites and product interfaces, from landing pages to dashboards and user flows."
     },
     {
       "title": "Brand systems",
