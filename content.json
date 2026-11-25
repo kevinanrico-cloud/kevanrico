@@ -287,7 +287,7 @@
         "label": "Studios & agencies"
       },
       {
-        "value": 28,
+        "value": 29,
         "label": "Brands"
       }
     ]
@@ -400,9 +400,10 @@
     "Medifa",
     "Djamoe Taman",
     "Torenda",
-    "Dailybox",
+    "Daily Box",
     "Beergembira",
-    "Sandiva"
+    "Sandiva",
+    "FedEx"
   ],
   "contact": {
     "email": "kevin.anrico@gmail.com",
