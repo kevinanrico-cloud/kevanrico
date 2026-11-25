@@ -49,8 +49,29 @@
       "gallery_columns": "3"
     },
     {
-      "slug": "wonderful-indonesia",
+      "slug": "asifit",
       "number": "03",
+      "client": "Asifit",
+      "category": "Digital & UI",
+      "sector": "Health · Kimia Farma",
+      "tagline": "A digital companion for breastfeeding mothers",
+      "headline": "Kisah, check-ins and care — in one place",
+      "description": "Website and product UI for Asifit, Kimia Farma’s breastfeeding supplement. Beyond the brand homepage, the experience gives mothers somewhere to return to: GEMAS, a daily check-in on mood and nutrition; Kisah Kasih Ibu, a space to share their stories; and a personal dashboard that turns their answers into gentle insights and recommendations.",
+      "role": "Art Director · UI design",
+      "scope": "Website · UI/UX · Key visuals",
+      "cover": "img/asifit_cover.webp",
+      "gallery": [
+        "img/asifit_home.webp",
+        "img/asifit_gemas.webp",
+        "img/asifit_signup.webp",
+        "img/asifit_story.webp",
+        "img/asifit_dashboard.webp"
+      ],
+      "gallery_columns": "2"
+    },
+    {
+      "slug": "wonderful-indonesia",
+      "number": "04",
       "client": "Wonderful Indonesia",
       "category": "Campaigns & KV",
       "sector": "Tourism",
@@ -68,7 +89,7 @@
     },
     {
       "slug": "wellings",
-      "number": "04",
+      "number": "05",
       "client": "Wellings",
       "category": "Campaigns & KV",
       "sector": "Pharmacy",
@@ -82,27 +103,6 @@
         "img/p13_200.webp",
         "img/p13_201.webp",
         "img/p13_202.webp"
-      ],
-      "gallery_columns": "2"
-    },
-    {
-      "slug": "asifit",
-      "number": "05",
-      "client": "Asifit",
-      "category": "Digital & UI",
-      "sector": "Health · Kimia Farma",
-      "tagline": "A digital companion for breastfeeding mothers",
-      "headline": "Kisah, check-ins and care — in one place",
-      "description": "Website and product UI for Asifit, Kimia Farma’s breastfeeding supplement. Beyond the brand homepage, the experience gives mothers somewhere to return to: GEMAS, a daily check-in on mood and nutrition; Kisah Kasih Ibu, a space to share their stories; and a personal dashboard that turns their answers into gentle insights and recommendations.",
-      "role": "Art Director · UI design",
-      "scope": "Website · UI/UX · Key visuals",
-      "cover": "img/asifit_cover.webp",
-      "gallery": [
-        "img/asifit_home.webp",
-        "img/asifit_gemas.webp",
-        "img/asifit_signup.webp",
-        "img/asifit_story.webp",
-        "img/asifit_dashboard.webp"
       ],
       "gallery_columns": "2"
     },
@@ -151,8 +151,25 @@
       "gallery_columns": "3"
     },
     {
-      "slug": "xl-axiata",
+      "slug": "art-jakarta",
       "number": "08",
+      "client": "ISA Art + Design × Art Jakarta",
+      "category": "Campaigns & KV",
+      "sector": "Art · Exhibition",
+      "tagline": "H.E.R and Square One",
+      "headline": "Two exhibitions, one booth",
+      "description": "Key visuals to open ISA Art + Design’s booth at Art Jakarta 2019. H.E.R celebrated female artists shaping the art world; Square One showcased legacy works by renowned artists. Each needed its own voice while sitting side by side in the same space.",
+      "role": "Graphic designer",
+      "scope": "Key visuals · Exhibition",
+      "cover": "img/isa_kv.webp",
+      "gallery": [
+        "img/isa_kv.webp"
+      ],
+      "gallery_columns": "2"
+    },
+    {
+      "slug": "xl-axiata",
+      "number": "09",
       "client": "XL Axiata",
       "category": "Campaigns & KV",
       "sector": "Telco",
@@ -172,28 +189,52 @@
     },
     {
       "slug": "pelita-air",
-      "number": "09",
+      "number": "10",
       "client": "Pelita Air",
       "category": "Brand systems & livery",
       "sector": "Aviation",
       "tagline": "Rebrand to commercial airline",
-      "headline": "Logo, livery, palette, supergraphic",
+      "headline": "From logo to the runway",
       "description": "Led the rebranding of Pelita Air as it moved into commercial flight — livery design, supergraphics and in-flight materials such as the safety card.",
       "role": "Art Director",
       "scope": "Livery · Supergraphics",
-      "cover": "img/p22_348.webp",
+      "cover": "img/pelita_photo2.webp",
       "gallery": [
+        "img/pelita_brand.webp",
+        "img/pelita_livery.webp",
         "img/p21_330.webp",
         "img/p22_349.webp",
         "img/p22_350.webp",
         "img/p22_351.webp",
-        "img/p22_352.webp"
+        "img/p22_352.webp",
+        "img/pelita_photo1.webp",
+        "img/pelita_photo2.webp",
+        "img/pelita_photo3.webp"
+      ],
+      "gallery_columns": "2"
+    },
+    {
+      "slug": "pelita-air-app",
+      "number": "11",
+      "client": "Pelita Air App",
+      "category": "Digital & UI",
+      "sector": "Aviation",
+      "tagline": "Booking that feels like the brand",
+      "headline": "Home, booking and checkout",
+      "description": "After the rebrand, Pelita Air needed its new identity to work where customers actually book. I designed the mobile app UI so finding a flight, choosing seats and paying feels quick and calm, and carries the same colours and supergraphic energy as the aircraft.",
+      "role": "UI/UX designer",
+      "scope": "Mobile app · UI/UX",
+      "cover": "img/pelitaapp_cover.webp",
+      "gallery": [
+        "img/pelitaapp_home.webp",
+        "img/pelitaapp_booking.webp",
+        "img/pelitaapp_payment.webp"
       ],
       "gallery_columns": "2"
     },
     {
       "slug": "kalista",
-      "number": "10",
+      "number": "12",
       "client": "Kalista",
       "category": "Brand systems & livery",
       "sector": "EV transport",
@@ -212,7 +253,7 @@
     },
     {
       "slug": "invi",
-      "number": "11",
+      "number": "13",
       "client": "INVI",
       "category": "Brand systems & livery",
       "sector": "EV charging",
@@ -233,7 +274,7 @@
     },
     {
       "slug": "leme",
-      "number": "12",
+      "number": "14",
       "client": "LEME",
       "category": "Brand systems & livery",
       "sector": "Heated tobacco",
@@ -252,7 +293,7 @@
     },
     {
       "slug": "apsari-artisan",
-      "number": "13",
+      "number": "15",
       "client": "Apsari Artisan",
       "category": "Brand systems & livery",
       "sector": "F&B",
@@ -267,6 +308,23 @@
         "img/p27_432.webp",
         "img/p27_433.webp",
         "img/p27_434.webp"
+      ],
+      "gallery_columns": "2"
+    },
+    {
+      "slug": "sandiva",
+      "number": "16",
+      "client": "Sandiva Law Firm",
+      "category": "Digital & UI",
+      "sector": "Legal",
+      "tagline": "A calmer first impression for a law firm",
+      "headline": "Website homepage",
+      "description": "Sandiva had just refreshed its visual identity and wanted a website to match. I designed a homepage that feels light and approachable, with a soft photographic backdrop and clear structure, for a profession people usually find intimidating.",
+      "role": "UI designer",
+      "scope": "Website · UI",
+      "cover": "img/sandiva_cover.webp",
+      "gallery": [
+        "img/sandiva_pages.webp"
       ],
       "gallery_columns": "2"
     }
@@ -305,7 +363,7 @@
         "label": "Studios & agencies"
       },
       {
-        "value": 15,
+        "value": 28,
         "label": "Brands"
       }
     ]
@@ -346,7 +404,7 @@
     {
       "title": "One frame the whole campaign hangs on",
       "description": "A campaign lives or dies on its key visual. I push for the single image that explains the idea without a caption, then build it until it holds up on a billboard and still reads in a 4:5 feed.",
-      "examples": "Wonderful Indonesia · RELX · Wellings"
+      "examples": "Wonderful Indonesia · RELX · Art Jakarta"
     },
     {
       "title": "Systems that flex without breaking",
@@ -366,7 +424,7 @@
     {
       "title": "Design people can use, not just look at",
       "description": "More and more, the brand experience is a product. I bring art direction into websites and interfaces: clear flows, warm tone and visuals that make a feature feel like the brand. Asifit turned a supplement into a companion for new mothers.",
-      "examples": "Asifit"
+      "examples": "Asifit · Pelita Air App · Sandiva"
     },
     {
       "title": "Leading the team to final",
@@ -407,7 +465,20 @@
     "Kalista",
     "INVI",
     "LEME",
-    "Apsari Artisan"
+    "Apsari Artisan",
+    "Kimia Farma",
+    "Bank BTN",
+    "BTN Syariah",
+    "ISA Art + Design",
+    "Art Jakarta",
+    "Sompo Insurance",
+    "Telkom Property",
+    "Medifa",
+    "Djamoe Taman",
+    "Torenda",
+    "Dailybox",
+    "Beergembira",
+    "Sandiva"
   ],
   "contact": {
     "email": "kevin.anrico@gmail.com",

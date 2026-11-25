@@ -272,6 +272,11 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
   </div>
 </section>
 
+<section class="band" id="clients" style="padding-bottom:clamp(60px,8vw,120px)">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:40px"><h2 class="big rv">Brands I’ve <span class="ser">worked with.</span></h2><p class="mono mut rv" id="brcount"></p></div>
+  <div class="brands" aria-label="Clients"><div class="row" id="br"></div></div>
+</section>
+
 <section class="band" id="about">
   <div class="wrap agrid">
     <div class="photo"><img alt="Portrait of Kevin Anrico" id="pimg"></div>
@@ -301,10 +306,7 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
   </div>
 </section>
 
-<section class="band" style="padding-bottom:clamp(60px,8vw,120px)">
-  <div class="wrap" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:40px"><h2 class="big rv">Brands I’ve <span class="ser">worked with.</span></h2><p class="mono mut rv" id="brcount"></p></div>
-  <div class="brands" aria-label="Clients"><div class="row" id="br"></div></div>
-</section>
+
 
 <section class="contact band" id="contact">
   <div class="wrap">
@@ -339,7 +341,7 @@ $('#htitle').textContent=H.title||'';$('#hintro').textContent=H.intro||'';
 if(A.photo)$('#pimg').src=A.photo;$('#bio').textContent=A.bio||'';
 $('#stmt').innerHTML=esc(A.statement)+' <span class="ser">'+esc(A.statement_italic)+'</span>';
 $('#stats').innerHTML=(A.stats||[]).map(x=>`<div><b data-n="${+x.value||0}" data-s="${esc(x.suffix)}">0</b><span class="mono mut">${esc(x.label)}</span></div>`).join('');
-$('#brcount').textContent=`${BR.length} brands · FMCG · Mobility · Aviation · Tech`;
+$('#brcount').textContent=`${BR.length} brands · FMCG · Finance · Mobility · Aviation · Tech · Art`;
 const tel=String(K.phone||'').replace(/[^0-9+]/g,'');
 $('#crows').innerHTML=`<div class="crow"><span class="mono" style="opacity:.6">Email</span><a href="mailto:${esc(K.email)}">${esc(K.email)}</a><button class="copy" data-copy="${esc(K.email)}">Copy</button></div><div class="crow"><span class="mono" style="opacity:.6">Phone</span><a href="tel:${tel}">${esc(K.phone)}</a><button class="copy" data-copy="${esc(K.phone)}">Copy</button></div><div class="crow"><span class="mono" style="opacity:.6">Based in</span><strong>${esc(K.location)}</strong><span></span></div>`;
 
