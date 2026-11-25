@@ -321,38 +321,33 @@
   ],
   "capabilities": [
     {
-      "title": "I find the real problem first",
-      "description": "Briefs usually describe a symptom. Before I open a layout, I look for the tension underneath: what people actually believe, and what stops them from acting. For Telfast, that meant noticing that people mistake allergic rhinitis for flu or masuk angin, so the campaign had to help them name it before it could sell them anything.",
+      "title": "Insight first",
+      "description": "I look for the tension behind a brief before I touch a layout.",
       "examples": "Telfast · GrabKios"
     },
     {
-      "title": "One frame the whole campaign hangs on",
-      "description": "A campaign lives or dies on its key visual. I push for the single image that explains the idea without a caption, then build it until it holds up on a billboard and still reads in a 4:5 feed.",
+      "title": "One strong frame",
+      "description": "A key visual that explains the idea without a caption, from billboard to 4:5 feed.",
       "examples": "Wonderful Indonesia · RELX"
     },
     {
-      "title": "Systems that flex without breaking",
-      "description": "Clients rarely need one beautiful poster. They need fifty pieces that still look like the same brand. I design the grid, the rules and the recurring device so teams and agencies can keep producing without diluting it. For Shell, that was one red band carrying a different industry hero in every sector.",
+      "title": "Systems that scale",
+      "description": "Grids and rules that keep fifty pieces looking like one brand.",
       "examples": "Shell Lubricants · Apsari Artisan"
     },
     {
-      "title": "Brands built to be seen at speed",
-      "description": "An aircraft, a bus and a charging station each give you about two seconds of attention. My livery and supergraphic work is about recognition in motion: bold shapes, disciplined colour and identities that read from across the street or the runway.",
+      "title": "Brands in motion",
+      "description": "Livery that reads in two seconds, on a plane, a bus or the street.",
       "examples": "Pelita Air · Kalista"
     },
     {
-      "title": "From the booth to the app",
-      "description": "An idea has to work everywhere the audience actually is. I carry one line across in-app, social, OOH, print and on-ground activations, like GrabKios’ Klub Cuan, which ran from booths in traditional markets to gamification inside the app.",
-      "examples": "GrabKios · XL Axiata · Telfast"
-    },
-    {
-      "title": "Design people can use, not just look at",
-      "description": "More and more, the brand experience is a product. I bring art direction into websites and interfaces: clear flows, warm tone and visuals that make a feature feel like the brand. Asifit turned a supplement into a companion for new mothers.",
+      "title": "Digital that works",
+      "description": "Websites and apps that feel like the brand and are easy to use.",
       "examples": "Asifit · Pelita Air App"
     },
     {
-      "title": "Leading the team to final",
-      "description": "For the past three years I’ve led creative teams: shaping direction, reviewing work and helping junior art directors and designers raise their craft without losing their own voice. I care as much about how the work gets made as about how it looks when it ships.",
+      "title": "Team leadership",
+      "description": "Three years leading designers and junior ADs to final, without losing their voice.",
       "examples": "Shell Lubricants · XL Axiata"
     }
   ],
@@ -410,5 +405,5 @@
     "phone": "+62 818 8282 3811",
     "location": "Jakarta, Indonesia"
   },
-  "capabilities_intro": "Eight years and five studios taught me that the work clients remember rarely starts with a moodboard. It starts with a sharp read of the problem, then one idea strong enough to survive every format it gets pushed into. This is what I bring to a team, and where you can see it."
+  "capabilities_intro": "Eight years, five studios. Here’s what I bring to a brief."
 }
