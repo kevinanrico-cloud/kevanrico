@@ -136,15 +136,25 @@ content:
             label: Role
             type: string
 
+      - name: capabilities_intro
+        label: What I bring — intro paragraph
+        type: text
+
       - name: capabilities
-        label: Capabilities
+        label: What I bring
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
         fields:
           - name: title
             type: string
           - name: description
             type: text
+          - name: examples
+            label: Seen in (projects, separated by ·)
+            type: string
 
       - name: approach
         label: Approach steps

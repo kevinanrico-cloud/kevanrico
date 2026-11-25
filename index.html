@@ -139,7 +139,7 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 .cap summary::-webkit-details-marker{display:none}
 .cap summary i{font-style:normal;font-weight:400;transition:transform .4s var(--ease);color:var(--mut)}
 .cap[open] summary i{transform:rotate(45deg);color:var(--acc)}
-.cap p{padding:0 0 22px;color:var(--mut);max-width:520px}
+.cap p{padding:0 0 18px;color:var(--mut);max-width:560px;font-size:17px;line-height:1.6}.cap p.ex{padding:0 0 26px;font-size:12px;color:var(--mut)}.cap p.ex span{color:var(--acc)}.cap summary{text-wrap:balance;gap:20px}
 
 /* approach */
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:clamp(40px,6vw,90px)}
@@ -289,7 +289,7 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 
 <section class="band" style="padding-top:0">
   <div class="wrap egrid">
-    <div><h2 class="big rv">What I <span class="ser">bring.</span></h2><p class="rv" style="margin-top:28px;color:var(--mut);max-width:460px;font-size:18px">Tuned for above-the-line: big ideas that hold up at billboard scale and still work in a 4:5 feed.</p></div>
+    <div><h2 class="big rv">What I <span class="ser">bring.</span></h2><p class="rv" style="margin-top:28px;color:var(--mut);max-width:460px;font-size:18px" id="capsintro"></p></div>
     <div id="caps"></div>
   </div>
 </section>
@@ -326,7 +326,7 @@ function init(C){
 const P=(C.projects||[]).map(p=>({id:String(p.slug||'').replace(/[^a-zA-Z0-9-]/g,''),no:esc(p.number),c:esc(p.client),cat:/brand/i.test(p.category||'')?'bs':/ui|digital/i.test(p.category||'')?'ui':'kv',sec:esc(p.sector),t:esc(p.tagline),h:esc(p.headline),d:esc(p.description),role:esc(p.role),scope:esc(p.scope),cv:esc(p.cover),g:(p.gallery||[]).map(esc),col:+p.gallery_columns||3}));
 const U=(C.unreleased||[]).map(esc);
 const EXP=(C.experience||[]).map(e=>[esc(e.years),esc(e.company),esc(e.role)]);
-const CAPS=(C.capabilities||[]).map(c=>[esc(c.title),esc(c.description)]);
+const CAPS=(C.capabilities||[]).map(c=>[esc(c.title),esc(c.description),esc(c.examples)]);
 const STEPS=(C.approach||[]).map(c=>[esc(c.title),esc(c.description)]);
 const BR=(C.clients||[]).map(esc);
 const H=C.hero||{},A=C.about||{},K=C.contact||{};
@@ -348,7 +348,7 @@ $('#cards').innerHTML=P.map(p=>`<article class="card" data-cat="${p.cat}" data-i
 $('#list').innerHTML=P.map(p=>`<div class="lrow" data-cat="${p.cat}" data-id="${p.id}" data-img="${im(p.cv)}" tabindex="0" role="link"><span class="mono mut">${p.no}</span><h3>${p.c}</h3><span class="hm" style="color:var(--mut)">${p.h}</span><span class="mono mut hm">${p.sec}</span><span class="arr" aria-hidden="true">→</span></div>`).join('');
 $('#track').innerHTML=U.map((u,i)=>`<figure><img src="${im(u)}" alt="Unreleased key visual ${i+1}" loading="lazy"><figcaption class="mono"><span>Unreleased</span><span>${String(i+1).padStart(2,'0')} / ${U.length}</span></figcaption></figure>`).join('');
 $('#exp').innerHTML=EXP.map(e=>`<div class="erow rv"><span class="mono mut">${e[0]}</span><b>${e[1]}</b><span style="color:var(--mut)">${e[2]}</span></div>`).join('');
-$('#caps').innerHTML=CAPS.map((c,i)=>`<details class="cap rv" ${i==0?'open':''}><summary>${c[0]}<i>+</i></summary><p>${c[1]}</p></details>`).join('');
+$('#caps').innerHTML=CAPS.map((c,i)=>`<details class="cap rv" ${i==0?'open':''}><summary>${c[0]}<i>+</i></summary><p>${c[1]}</p>${c[2]?`<p class="mono ex">Seen in — <span>${c[2]}</span></p>`:''}</details>`).join('');$('#capsintro').textContent=C.capabilities_intro||'';
 $('#steps').innerHTML=STEPS.map((s,i)=>`<div class="step rv" style="transition-delay:${i*.12}s"><b class="${i==2?'acc':''}">${String(i+1).padStart(2,'0')}</b><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('');
 const brH=BR.map(b=>`<span>${b}</span><span><em>●</em></span>`).join('');$('#br').innerHTML=brH+brH;
 const reel=[...P.map(p=>p.cv),...P.map(p=>p.g[1]||p.g[0]).filter(Boolean)];const half=Math.ceil(reel.length/2);
