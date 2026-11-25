@@ -18,9 +18,6 @@ content:
           - name: intro
             label: Intro paragraph
             type: text
-          - name: reel_label
-            label: Scroll link label
-            type: string
 
       - name: projects
         label: Projects
