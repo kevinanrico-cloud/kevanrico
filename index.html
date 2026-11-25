@@ -72,6 +72,7 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 .reel{margin-top:clamp(30px,4vw,56px);display:grid;gap:12px;overflow:hidden}
 .row{display:flex;gap:12px;width:max-content;will-change:transform}
 .row img{height:clamp(140px,17vw,260px);width:auto;object-fit:cover;border-radius:var(--r);flex:none}
+.rtile{height:clamp(140px,17vw,260px);flex:none;display:flex;align-items:center;justify-content:center;padding:0 clamp(14px,2vw,28px);background:#0B3A82;border-radius:var(--r);overflow:hidden}.rtile img{height:118%!important;width:auto;border-radius:0!important;object-fit:contain!important;transform:translateY(9%)}
 .reelwrap{padding-bottom:22px}
 
 /* work */
@@ -355,7 +356,7 @@ $('#caps').innerHTML=CAPS.map((c,i)=>`<details class="cap rv" ${i==0?'open':''}>
 $('#steps').innerHTML=STEPS.map((s,i)=>`<div class="step rv" style="transition-delay:${i*.12}s"><b class="${i==2?'acc':''}">${String(i+1).padStart(2,'0')}</b><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('');
 const brH=BR.map(b=>`<span>${b}</span><span><em>●</em></span>`).join('');$('#br').innerHTML=brH+brH;
 const reel=[...P.map(p=>p.cv),...P.map(p=>p.g[1]||p.g[0]).filter(Boolean)];const half=Math.ceil(reel.length/2);
-const r1=reel.slice(0,half).map(n=>`<img src="${im(n)}" alt="">`).join(''),r2=reel.slice(half).map(n=>`<img src="${im(n)}" alt="">`).join('');
+const rt=n=>/_cutout/.test(n)?`<span class="rtile"><img src="${im(n)}" alt=""></span>`:`<img src="${im(n)}" alt="">`;const r1=reel.slice(0,half).map(rt).join(''),r2=reel.slice(half).map(rt).join('');
 $('#r1').innerHTML=r1+r1;$('#r2').innerHTML=r2+r2;
 $$('[data-split]').forEach((el,li)=>{el.innerHTML=[...el.textContent].map((c,i)=>`<span class="ch" style="transition-delay:${.15+li*.12+i*.04}s">${c}</span>`).join('')});
 const st=$('#stmt');{const ser=st.querySelector('.ser').textContent;st.querySelector('.ser').remove();const words=st.textContent.trim().split(/\s+/);st.innerHTML=words.map(w=>`<span class="w">${w}</span>`).join(' ')+' '+`<span class="ser">${ser.split(' ').map(w=>`<span class="w">${w}</span>`).join(' ')}</span>`}
