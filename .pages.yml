@@ -19,6 +19,16 @@ content:
             label: Intro paragraph
             type: text
 
+      - name: story
+        label: V2 site — prologue slides (image + one sentence each)
+        type: object
+        list: true
+        fields:
+          - name: image
+            type: image
+          - name: text
+            type: text
+
       - name: projects
         label: Projects
         type: object

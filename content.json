@@ -405,5 +405,27 @@
     "phone": "+62 818 8282 3811",
     "location": "Jakarta, Indonesia"
   },
-  "capabilities_intro": "Eight years, five studios. Here’s what I bring to a brief."
+  "capabilities_intro": "Eight years, five studios. Here’s what I bring to a brief.",
+  "story": [
+    {
+      "image": "img/pelita_photo2.webp",
+      "text": "I’m Kevin Anrico, an Art Director based in Jakarta."
+    },
+    {
+      "image": "img/p09_134.webp",
+      "text": "For eight years I’ve helped brands find the one idea worth saying —"
+    },
+    {
+      "image": "img/p11_171.webp",
+      "text": "then made it impossible to miss, on billboards, aircraft and the phone in your hand."
+    },
+    {
+      "image": "img/p07_93.webp",
+      "text": "Every project starts the same way: with a story."
+    },
+    {
+      "image": "img/p24_383.webp",
+      "text": "This is the work, told chapter by chapter."
+    }
+  ]
 }
