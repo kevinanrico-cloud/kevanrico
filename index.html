@@ -20,6 +20,10 @@
 <meta name="twitter:description" content="Art Director in Jakarta. Key visuals, campaigns, brand systems, livery and digital work for Shell, Pelita Air, Wonderful Indonesia, Telfast and more.">
 <meta name="twitter:image" content="https://portfolio.kevinanrico.workers.dev/og.jpg">
 <meta name="theme-color" content="#F3F1EC">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -185,7 +189,12 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 .rv.in{opacity:1;transform:none}
 
 /* clients */
-.brands{overflow:hidden;border-block:1px solid var(--line);padding:28px 0}
+.brands{overflow-x:auto;overflow-y:hidden;border-block:1px solid var(--line);padding:28px 0;scrollbar-width:none;cursor:grab;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}.brands::-webkit-scrollbar{display:none}.brands.drag{cursor:grabbing;user-select:none}
+.bctl{display:flex;flex-direction:column;align-items:flex-end;gap:14px}.bbtn{display:flex;gap:8px}.pill.sq{width:44px;padding:0;font-size:18px}
+.bgrid{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin-top:36px}
+.bgrid li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 0;border-top:1px solid var(--line);font-weight:600;font-size:clamp(19px,1.6vw,24px);letter-spacing:-.02em}
+.bgrid li span{font:500 12px var(--mono);color:var(--mut)}
+@media(max-width:900px){.bgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.bctl{align-items:flex-start}}
 .brands .row{gap:0}
 .brands span{font-weight:600;font-size:clamp(40px,6vw,96px);letter-spacing:-.04em;line-height:1;padding:0 .35em;white-space:nowrap;transition:color .3s}
 .brands span:nth-child(odd){font-family:var(--ser);font-style:italic;font-weight:400;letter-spacing:-.01em}
@@ -251,6 +260,7 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 .gal figure:not(.clear):not(.logo) img,.chero .lead:not(.clear) img,.track img,.photo img,.preview img{border-radius:var(--r)}
 .gal figure,.chero .lead,.media,.photo{-webkit-mask-image:-webkit-radial-gradient(white,black);isolation:isolate}
 .gal figure.clear,.chero .lead.clear,.media.clear{-webkit-mask-image:none}
+p,.cap p,.chero p,.bio,.stmt,.hside p{text-wrap:pretty}h1,h2,h3{text-wrap:balance}
 </style>
 </head>
 <body class="nojs">
@@ -315,8 +325,9 @@ h2.big .ser{font-size:1.08em;letter-spacing:-.01em}
 </section>
 
 <section class="band" id="clients" style="padding-bottom:clamp(60px,8vw,120px)">
-  <div class="wrap" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:40px"><h2 class="big rv">Brands I’ve <span class="ser">worked with.</span></h2><p class="mono mut rv" id="brcount"></p></div>
-  <div class="brands" aria-label="Clients"><div class="row" id="br"></div></div>
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:40px"><h2 class="big rv">Brands I’ve <span class="ser">worked with.</span></h2><div class="bctl rv"><p class="mono mut" id="brcount"></p><div class="bbtn"><button class="pill sq" id="bprev" aria-label="Scroll brands left">←</button><button class="pill sq" id="bnext" aria-label="Scroll brands right">→</button><button class="pill" id="ball" aria-expanded="false" aria-controls="bgrid">See all</button></div></div></div>
+  <div class="brands" id="bscroll" aria-label="Clients — drag or scroll sideways" tabindex="0"><div class="row" id="br"></div></div>
+  <div class="wrap"><ul class="bgrid" id="bgrid" hidden></ul></div>
 </section>
 
 <section class="band" id="about">
@@ -378,6 +389,7 @@ const im=n=>n;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const FINE=matchMedia('(pointer:fine)').matches;
+const noWidow=root=>{(root||document).querySelectorAll('p,.cmeta .ser,.lrow .hm,.chero .ser,.chero p').forEach(el=>{if(el.dataset.nw||el.textContent.trim().split(/\s+/).length<4)return;const tw=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),ns=[];let n;while(n=tw.nextNode())ns.push(n);let seen=false;for(let k=ns.length-1;k>=0;k--){const v=ns[k].nodeValue;for(let c=v.length-1;c>=0;c--){if(/\S/.test(v[c]))seen=true;else if(seen&&v[c]!==' '){ns[k].nodeValue=v.slice(0,c).replace(/\s+$/,'')+' '+v.slice(c+1);el.dataset.nw=1;return}}}})};
 document.body.classList.remove('nojs');
 $('#htitle').textContent=H.title||'';$('#hintro').textContent=H.intro||'';
 if(A.photo)$('#pimg').src=A.photo;$('#bio').textContent=A.bio||'';
@@ -395,6 +407,22 @@ $('#exp').innerHTML=EXP.map(e=>`<div class="erow rv"><span class="mono mut">${e[
 $('#caps').innerHTML=CAPS.map((c,i)=>`<details class="cap rv" ${i==0?'open':''}><summary>${c[0]}<i>+</i></summary><p>${c[1]}</p>${c[2]?`<p class="mono ex">Seen in — <span>${c[2]}</span></p>`:''}</details>`).join('');$('#capsintro').textContent=C.capabilities_intro||'';
 $('#steps').innerHTML=STEPS.map((s,i)=>`<div class="step rv" style="transition-delay:${i*.12}s"><b class="${i==2?'acc':''}">${String(i+1).padStart(2,'0')}</b><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('');
 const brH=BR.map(b=>`<span>${b}</span><span><em>●</em></span>`).join('');$('#br').innerHTML=brH+brH;
+$('#bgrid').innerHTML=BR.map((b,i)=>`<li>${b}<span>${String(i+1).padStart(2,'0')}</span></li>`).join('');
+const bS=$('#bscroll');let bHold=0,bHover=false,bT=0;
+const hold=()=>{bHold=1;clearTimeout(bT);bT=setTimeout(()=>bHold=0,2500)};
+const bWrap=()=>{const w=$('#br').scrollWidth/2;if(!w)return;if(bS.scrollLeft>=w)bS.scrollLeft-=w;else if(bS.scrollLeft<=0)bS.scrollLeft+=w};
+bS.addEventListener('scroll',bWrap,{passive:true});
+bS.addEventListener('mouseenter',()=>bHover=true);bS.addEventListener('mouseleave',()=>bHover=false);
+bS.addEventListener('wheel',e=>{if(Math.abs(e.deltaX)>Math.abs(e.deltaY)||e.shiftKey)hold()},{passive:true});
+bS.addEventListener('touchstart',hold,{passive:true});
+let dx=null,dl=0;bS.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;dx=e.clientX;dl=bS.scrollLeft;bS.classList.add('drag');hold()});
+addEventListener('pointermove',e=>{if(dx===null)return;bS.scrollLeft=dl-(e.clientX-dx);hold()});
+addEventListener('pointerup',()=>{dx=null;bS.classList.remove('drag')});
+const bStep=d=>{hold();bS.scrollBy({left:d*bS.clientWidth*.6,behavior:'smooth'})};
+$('#bprev').onclick=()=>bStep(-1);$('#bnext').onclick=()=>bStep(1);
+bS.addEventListener('keydown',e=>{if(e.key==='ArrowRight')bStep(1);if(e.key==='ArrowLeft')bStep(-1)});
+$('#ball').onclick=()=>{const g=$('#bgrid'),o=g.hidden;g.hidden=!o;$('#ball').textContent=o?'Hide list':'See all';$('#ball').setAttribute('aria-expanded',o);lenis&&lenis.resize()};
+requestAnimationFrame(()=>{bS.scrollLeft=1});
 const reel=[...P.map(p=>p.cv),...P.map(p=>p.g[1]||p.g[0]).filter(Boolean)];const half=Math.ceil(reel.length/2);
 const rt=n=>/_cutout/.test(n)?`<span class="rtile"><img src="${im(n)}" alt=""></span>`:`<img src="${im(n)}" alt="">`;const r1=reel.slice(0,half).map(rt).join(''),r2=reel.slice(half).map(rt).join('');
 $('#r1').innerHTML=r1+r1;$('#r2').innerHTML=r2+r2;
@@ -455,7 +483,7 @@ function render(p){const i=P.indexOf(p),n=P[(i+1)%P.length];
  <div class="chead"><p class="mono mut">The work — ${p.g.length} pieces</p><h3 style="margin-top:10px">${p.h}</h3></div>
  <div class="gal ${p.col==2?'w':p.col==1?'one':''}">${gal}</div>
  <a class="next" data-id="${n.id}" tabindex="0" role="link"><span class="mono mut">Next project — ${n.no}</span><b>${n.c} →</b></a>`;
- cs.scrollTop=0;$('#x').onclick=close;const nx=cs.querySelector('.next');nx.onclick=()=>open(n.id);nx.onkeydown=e=>{if(e.key=='Enter')open(n.id)};
+ cs.scrollTop=0;noWidow(cs);$('#x').onclick=close;const nx=cs.querySelector('.next');nx.onclick=()=>open(n.id);nx.onkeydown=e=>{if(e.key=='Enter')open(n.id)};
 }
 function show(){const id=location.hash.slice(1),p=P.find(x=>x.id==id);
  if(p){if(!cs.classList.contains('on'))lastFocus=document.activeElement;render(p);cs.classList.add('on');document.documentElement.style.overflow='hidden';setTimeout(()=>cs.focus({preventScroll:true}),50)}
@@ -478,6 +506,7 @@ bg.addEventListener('click',()=>setMenu(!menuOpen));
 menu.querySelectorAll('.mlinks a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const h=a.getAttribute('href').slice(1);setMenu(false);setTimeout(()=>go(h),350)}));
 addEventListener('keydown',e=>{if(e.key==='Escape'&&menuOpen)setMenu(false)});
 addEventListener('resize',()=>{if(innerWidth>1000&&menuOpen)setMenu(false)});
+noWidow();
 /* scroll-driven loop */
 const nav=$('#nav'),prog=$('#prog'),hz=$('#unreleased'),track=$('#track'),hbar=$('#hbar'),pimg=$('#pimg'),ws=$$('#stmt .w'),R1=$('#r1'),R2=$('#r2'),BRr=$('#br');
 let lastIH=innerHeight,acc=0,navHidden=false,lastY=scrollY,vel=0,o1=0,o2=0,o3=0,hzOn=false;
@@ -490,11 +519,11 @@ function frame(t){
  const H=document.documentElement.scrollHeight-innerHeight;prog.style.transform=`scaleX(${H>0?y/H:0})`;
  nav.classList.toggle('solid',y>40);if(innerHeight!==lastIH){lastIH=innerHeight;acc=0}else if(y<120||cs.classList.contains('on')||menuOpen){navHidden=false;acc=0}else if(dy){if((dy>0)!==(acc>0))acc=0;acc+=dy;if(acc>70)navHidden=true;else if(acc<-40)navHidden=false}if(nav.classList.contains('hide')!==navHidden)nav.classList.toggle('hide',navHidden);
  if(!RM){const k=1+Math.min(Math.abs(vel)*.15,6),d=vel<0?-1:1;
-  o1-=.5*k*d;o2+=.5*k*d;o3-=.7*k*d;
+  o1-=.5*k*d;o2+=.5*k*d;
   const w1=R1.scrollWidth/2,w2=R2.scrollWidth/2,w3=BRr.scrollWidth/2;
   if(w1){o1=((o1%w1)-w1)%w1;R1.style.transform=`translate3d(${o1}px,0,0)`}
   if(w2){o2=((o2%w2)-w2)%w2;R2.style.transform=`translate3d(${o2}px,0,0)`}
-  if(w3){o3=((o3%w3)-w3)%w3;BRr.style.transform=`translate3d(${o3}px,0,0)`}
+  if(w3&&!bHold&&!bHover){bS.scrollLeft+=.6*k}
   const pr=pimg.parentElement.getBoundingClientRect();pimg.style.transform=`translate3d(0,${(pr.top-innerHeight/2)*-.08-40}px,0)`;
  }
  if(hzOn){const r=hz.getBoundingClientRect(),max=track.scrollWidth-innerWidth,p=Math.max(0,Math.min(1,-r.top/(hz.offsetHeight-innerHeight)));track.style.transform=`translate3d(${-p*max}px,0,0)`;hbar.style.width=p*100+'%'}
